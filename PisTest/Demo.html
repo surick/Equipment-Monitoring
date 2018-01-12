@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Echarts扩展_SVG</title>
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/esl.js"></script>
+</head>
+<body>
+<div id="main" style="height: 1000px; width: 100%;"></div>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths: {
+            'echarts': 'js/echarts',
+            'echarts/chart/map': 'js/echarts-map'
+        }
+    });
+
+    // 使用
+    require(
+        [
+            'echarts',
+            'echarts/chart/map'// 使用柱状图就加载bar模块，按需加载
+        ],
+
+        function (ec) {
+            require('echarts/util/mapData/params').params.demo1 = {
+                getGeoJson: function (callback) {
+                    $.ajax({
+                            url: "svg/layout-1.svg",
+                        dataType: 'xml',
+                        success: function (xml) {
+                            callback(xml)
+                        }
+                    });
+                },
+            }
+            // 基于准备好的dom，初始化echarts图表
+            var myChart = ec.init(document.getElementById('main'));
+
+            var option = {
+                backgroundColor:'#eee',
+                title : {
+                    text : 'XXXX',
+                    textStyle: {
+                        color: '#000'
+                    }
+                },
+                tooltip : {
+                    trigger: 'item',
+                    formatter: function (obj) {
+                        if(obj[2] == 1){
+                            return obj[1]+'</br>运行故障';
+                        }else{
+                            return obj[1]+'</br>运行正常'
+                        }
+                        //return obj[2];
+                    }
+                },
+                toolbox: {
+                    show : true,
+                    feature : {
+                        mark : {show: true},
+                        dataView : {show: true, readOnly: false},
+                        restore : {show: true},
+                        saveAsImage : {show: true}
+                    }
+                },
+                visualMap: {
+                    min: 0,
+                    max: 150,
+                    text:['High','Low'],
+                    seriesIndex: 0,
+                    calculable : true,
+                    color: ['red','yellow']
+                },
+                series : [
+                    {
+                        name: '设备信息',
+                        type: 'map',
+                        mapType: 'demo1',
+                        roam:true,
+                        itemStyle:{
+                            //normal:{label:{show:true}},
+                            emphasis:{label:{show:true}}
+                        },
+                        data:[
+                            {name: '设备1',value:1},
+                            {name: '设备3',value:2},
+                            {name: '设备4',value:62},
+                            {name: '设备5',value:52},
+                            {name: '设备6',value:42},
+                            {name: '设备7',value:32},
+                            {name: '设备8',value:22},
+                            {name: '设备9',value:112},
+                            {name: '设备11',value:12},
+                            {name: '设备12',value:112},
+                            {name: '设备13',value:122},
+                        ]
+                    }
+                ]
+            };
+
+
+            // 为echarts对象加载数据
+            myChart.setOption(option);
+        }
+    );
+</script>
+</body>
+</html>
