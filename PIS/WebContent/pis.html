@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PIS</title>
+<meta charset="UTF-8">
+<!-- <meta http-equiv="refresh" content="5"> -->
+<style>
+html, body {
+	padding: 0px;
+	margin: 0px;
+}
+
+</style>
+<script src="js\ht.js"></script>
+<!-- <script src="http://211.149.186.22:8084/js/ht.js"></script> -->
+<script src="js\jquery.js"></script>
+<script src="js\ht-animation.js"></script>
+<script>
+function init() {
+    dataModel = new ht.DataModel();
+    dataModel.enableAnimation();
+    graphView = new ht.graph.GraphView(dataModel);
+    graphView.addToDOM();
+    graphView.setEditable(false);
+    graphView.fitContent(true);
+    graphView.setMovableFunc(function() { return false; });
+    ht.Default.xhrLoad('test.json', function (text) {
+    	const json = ht.Default.parse(text);
+        if (json.title) document.title = json.title;
+        	dataModel.deserialize(json);
+        	window.addEventListener('resize', function() {
+                graphView.fitContent();
+              });
+        //graphView.fitContent(true);
+         //           data = dataModel.getDataById(2);
+         //           data.setStyle("label", "red");
+        //             console.log(dataModel.serialize());
+
+    			graphView.enableToolTip();
+    			var label = '';
+    			graphView.getToolTip = function(e) {
+        			var d = graphView.getDataAt(e);
+        	    	if (d instanceof ht.Node) {
+        	    		//alert(d.getStyle('address'));
+        	    		$.ajax({
+        	    				type:"GET",
+        	    				url:"control.jsp",
+        	    				dataType:"json",
+        	    				success:function (data){
+        	    								for(b = 0; b < data.Tips.length; b++){
+        	    									if(d.getAttr('name') == data.Tips[b].id){
+        	    										if(data.Tips[b].flag == 2){
+        	    											label = d.getAttr('name')+
+        	                        								'</br>设备地址:' +d.getAttr('address')+
+        	                        								'</br>设备故障</br>'+data.Tips[b].time;
+        	    										}else{
+        	    											label = d.getAttr('name')+
+            	                        							'</br>设备地址:' +d.getAttr('address')+
+            	                        							'</br>正常运行</br>'+data.Tips[b].time;
+        	    										}
+        	    									}
+        	    								}
+        	    				}
+        	    		});
+        	    		return label;
+        			}
+    			}; 
+        $(document).ready(function () {
+            setInterval(function () { ajax();},5000);
+        });
+
+        function ajax() {
+            $.ajax({
+            	type:"GET",
+                url: "control.jsp",  
+                dataType:"json",
+                success: function (data) {
+            			for (i = 2; i < dataModel.size()+2; i++) {
+                        	//data1 = dataModel.getDataById(i) ;
+                        	data1 = dataModel._dataMap[i];
+                        	//alert(data1);
+            				for (b = 0; b < data.Tips.length; b++) {
+            				    	if (data1.getAttr('name') == data.Tips[b].id){
+            				    		//data1.setStyle("body.color", "#EED5B7");
+            				    		//data1.setAnimation(null);
+            	    					if(data.Tips[b].flag == 2){
+                        					//data1.setStyle("body.color", "red");
+                        					data1.setAnimation({
+                        	                    blend: {
+                        	                    	frames:20,
+                        	                        from: 255, 
+                        	                        to: 0,
+                        	                        delay:500,
+                        	                        next: "clear",
+                        	                        onUpdate: function(value) {
+                        	                            value = parseInt(value);
+                        	                            this.s("body.color", "rgb(255, " + value + ", " + value + ")");
+                        	                        }
+                        	                    },
+                        	                    clear: {
+                        	                    	frames:20,
+                        	                        from: 0, 
+                        	                        to: 255,
+                        	                        next: "blend",
+                        	                        onUpdate: function(value) {
+                        	                            value = parseInt(value);
+                        	                            this.s("body.color", "rgb(255, " + value + ", " + value + ")");
+                        	                        }
+                        	                    },
+                        	                    start: ["blend"]
+                        	                });
+            	    					}else{
+            	    						data1.setStyle("body.color", "#EED5B7");
+                				    		data1.setAnimation(null);
+            	    					}
+            						}
+            	    		 }
+            		 	 }
+                 },
+                 error: function (data) { alert("err");}
+            });
+        }
+     })
+  }
+</script>
+</head>
+<body onload="init();">
+</body>
+</html>

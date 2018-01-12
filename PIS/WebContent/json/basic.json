@@ -1,0 +1,14 @@
+{
+   "width": 150,
+   "height": 100,
+   "comps": [
+             {
+               "type":"rect",
+               "rect": [10, 20, 130, 80],
+               "borderWidth": 1,
+               "borderColor": "#8B8B83",
+               "background": "#EED5B7",
+               "depth": 5
+              }
+             ]
+}

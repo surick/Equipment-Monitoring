@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PIS</title>
+<meta charset="UTF-8">
+<!-- <meta http-equiv="refresh" content="5"> -->
+<style>
+html, body {
+	padding: 0px;
+	margin: 0px;
+}
+
+</style>
+<script src="js\ht.js"></script>
+<script src="js\jquery.js"></script>
+<script>
+function init() {
+    dataModel = new ht.DataModel();
+    graphView = new ht.graph.GraphView(dataModel);
+/*     graphView.getView().style.backgroundColor = "rgba(0,0,51,1)"; */
+    graphView.addToDOM();
+    graphView.setEditable(false);
+    graphView.fitContent(true);
+    graphView.setMovableFunc(function() { return false; });
+    //graphView.setInteractors(null);
+  /*   graphView.setZoom(0.8);
+    graphView.translate(-80, -50);
+    currentInput = null; */
+    ht.Default.xhrLoad('base1.json', function (text) {
+    	const json = ht.Default.parse(text);
+        if (json.title) document.title = json.title;
+        	dataModel.deserialize(json);
+        	window.addEventListener('resize', function() {
+                graphView.fitContent();
+              });
+        //graphView.fitContent(true);
+         //           data = dataModel.getDataById(2);
+         //           data.setStyle("label", "red");
+        //             console.log(dataModel.serialize());
+
+    	/* 		graphView.enableToolTip();
+                var label = '';
+    			graphView.getToolTip = function(e) {
+        		var d = graphView.getDataAt(e);
+        	    if (d instanceof ht.Node) {
+                	label = d._name+
+                    '</br>设备 IP 地址：192.168.0.1</br>' +
+                    '厂商：惠普';
+        		}
+        		return label;
+    			}; */
+        $(document).ready(function () {
+            setInterval(function () { ajax();},5000);
+        });
+
+        function ajax() {
+            $.ajax({
+            	type:"GET",  
+            	async:true,
+                url: "control.jsp",  
+                dataType:"json",
+                success: function (data) {
+                	graphView.enableToolTip();
+                    var label = '';
+        			graphView.getToolTip = function(e) {
+            			var d = graphView.getDataAt(e);
+            			for (i = 0; i < dataModel.size(); i++) {
+                        	data1 = dataModel.getDataById(i);
+            				for (b = 0; b < data.Tips.length; b++) {
+            			    	if (d instanceof ht.Node)
+            				    	if (data1 == data.Tips[b].id){
+            				    		data1.setStyle("body.color", "");
+            	    					if(d._name == data.Tips[b].id && data.Tips[b].flag == 2){
+                    						label = d._name+
+                        							'</br>设备 IP 地址：192.168.0.1</br>' +
+                        							'机器故障'+data.Tips[b].id;
+                        					data1.setStyle("body.color", "red");
+                    						return label;
+            	    					}else{
+            	    						label = d._name+
+            	    								'</br>设备 IP 地址：192.168.0.1</br>'+
+            	    								'正常';
+            	    						//data1.setStyle("body.color", "");
+            	    						return label;}
+            						}
+            							//return label;
+            	    		}
+            		 	}
+            		};
+                }
+                    /* for (i = 0; i < dataModel.size(); i++) {
+                        data1 = dataModel.getDataById(i);
+                        //data1.setStyle("body.color", "");
+                         //alert(data1); 
+                        for (b = 0; b < data.Tips.length; b++) {
+                            if (data1 == data.Tips[b].id) {
+                        		//data1.setStyle('label',"qqq"+data.Tips[b].id);
+                                if (data.Tips[b].flag == 2) {
+                                    data1.setStyle("body.color", "red");
+                                }else{
+                                	data1.setStyle("body.color", "cyan");
+                                }
+                            }
+                        }
+                    } */
+                /* ,
+                error: function (data) { alert("err");} */
+            });
+        }
+     })
+  }
+</script>
+</head>
+<body onload="init();">
+</body>
+</html>

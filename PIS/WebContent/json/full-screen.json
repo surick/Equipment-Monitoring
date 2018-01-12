@@ -1,0 +1,52 @@
+{
+  "background": "rgb(156,156,156)",
+  "width": 16,
+  "height": 16,
+  "comps": [
+    {
+      "type": "rect",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "rotation": 1.5708,
+      "rect": [
+        2.5,
+        1.5,
+        11,
+        13
+      ]
+    },
+    {
+      "type": "shape",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "displayName": "不规则图形",
+      "rotation": -1.5708,
+      "points": [
+        5.99448,
+        8.99448,
+        3.47771,
+        8.99448,
+        3.47771,
+        11.52229
+      ]
+    },
+    {
+      "type": "shape",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "displayName": "不规则图形",
+      "rotation": 1.5708,
+      "points": [
+        12.52229,
+        4.47771,
+        10.00552,
+        4.47771,
+        10.00552,
+        7.00552
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Blue</title>
+<meta charset="UTF-8">
+<style>
+html, body {
+	padding: 0px;
+	margin: 0px;
+}
+
+.main {
+	margin: 0px;
+	padding: 0px;
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+}
+</style>
+<script src="ht.js"></script>
+<script src="jquery.js"></script>
+<script>
+        function init(){
+            dataModel = new ht.DataModel();                   
+            graphView = new ht.graph.GraphView(dataModel);              
+            view = graphView.getView();
+            
+            view.className = 'main';
+            document.body.appendChild(view);    
+            window.addEventListener('resize', function (e) {
+            	graphView.invalidate();
+            }, false);                                                  
+        }
+            /* var xhr = new XMLHttpRequest();
+            var index = ""; 
+            xhr.onreadystatechange = function(){
+            	if(xhr.readyState == 4){
+            		if((xhr.status >=200 && xhr.status <300) || xhr.status == 304){
+            			function(data){
+            				index = data.value;
+            			}
+            		}else{
+            			alert("Request was unsuccessful:"+xhr.status);
+            		}
+            	}
+            };
+            xhr.open("get","json.jsp",true);
+            var form = document.getElementById("user-info");
+            xhr.send(new FormData(form)); */
+            $.ajax({  
+                type:"GET",  
+                url: "json.jsp",  
+                dataType:"json",  
+                success:function(data){  
+                    /* alert(data);  
+                    learnMore.setImage(data.image);
+                    learnMore.setStyle('body.color', data.alram); */
+                	/* var str = JSON.stringify(data); */
+                	/* var str1 = JSON.stringify(data.d[5].p.name); */
+                	/* if(data.d[5].p.name == "node6"){
+                		alert("ss");
+                	} */
+             		/* alert(str1); */
+             		data.err = "node8";
+             		if(data.err != null){
+                	for(var i=0;i<20;i++){
+                	if(data.d[i].p.name == data.err){
+                		data.d[i].p.image = "json/cloud1.json";
+                		/* data.d[i].s.bodycolor = "red"; */
+                		i++;}
+                		} 
+             		}
+                    dataModel.clear();
+                    dataModel.deserialize(data);
+                }  
+            }); 
+        </script>
+</head>
+<body onload="init();">
+</body>
+</html>

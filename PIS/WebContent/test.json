@@ -1,0 +1,299 @@
+{
+  "v": "6.1.8",
+  "p": {
+    "autoAdjustIndex": true,
+    "hierarchicalRendering": false
+  },
+  "d": [
+    {
+      "c": "ht.Node",
+      "i": 9,
+      "p": {
+        "image": "json/basic.json",
+        "rotation": 1.5708,
+        "position": {
+          "x": 306.5,
+          "y": 166
+        },
+        "width": 132,
+        "height": 79
+      },
+      "a": {
+        "name": "aTRIAAssy1",
+        "address": "DISH#6#SS"
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 10,
+      "p": {
+        "image": "json/basic.json",
+        "rotation": 1.5708,
+        "position": {
+          "x": 307,
+          "y": 284
+        },
+        "width": 132,
+        "height": 79
+      },
+      "a": {
+        "address": "DISH#6#SS",
+        "name": "aTRIAAssy2"
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 11,
+      "p": {
+        "image": "json/basic.json",
+        "rotation": 1.5708,
+        "position": {
+          "x": 307.5,
+          "y": 402
+        },
+        "width": 132,
+        "height": 79
+      },
+      "a": {
+        "address": "DISH#6#SS",
+        "name": "aTRIAAssy3"
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 12,
+      "p": {
+        "image": "json/basic.json",
+        "position": {
+          "x": 303.5,
+          "y": 472.5
+        },
+        "width": 65,
+        "height": 29
+      },
+      "a": {
+        "name": "Heat sink",
+        "address": "DISH#6#S"
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 13,
+      "p": {
+        "image": "json/basic.json",
+        "position": {
+          "x": 272,
+          "y": 513.5
+        },
+        "width": 138,
+        "height": 79
+      },
+      "a": {
+        "address": "DISH#6#S",
+        "name": "Codeload"
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 14,
+      "p": {
+        "image": "json/basic.json",
+        "position": {
+          "x": 368,
+          "y": 274.5
+        },
+        "width": 24,
+        "height": 569
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 15,
+      "p": {
+        "image": "json/basic.json",
+        "position": {
+          "x": 442.5,
+          "y": 122.5
+        },
+        "width": 77,
+        "height": 53
+      },
+      "a": {
+        "address": "DISH#6",
+        "name": "N2"
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 16,
+      "p": {
+        "image": "json/basic.json",
+        "position": {
+          "x": 442.5,
+          "y": 167.5
+        },
+        "width": 77,
+        "height": 53
+      },
+      "a": {
+        "address": "DISH#62",
+        "name": "N21"
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 17,
+      "p": {
+        "image": "json/basic.json",
+        "position": {
+          "x": 472.5,
+          "y": 223.5
+        },
+        "width": 145,
+        "height": 63
+      },
+      "a": {
+        "address": "DISH#6S",
+        "name": "SSPA STE"
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 18,
+      "p": {
+        "parent": {
+          "__i": 17
+        },
+        "image": "json/basic.json",
+        "position": {
+          "x": 472,
+          "y": 311
+        },
+        "width": 145,
+        "height": 63
+      },
+      "a": {
+        "address": "DISH#6",
+        "name": "SSPA STE1"
+      }
+    },
+    {
+      "c": "ht.Edge",
+      "i": 19,
+      "p": {
+        "source": {
+          "__i": 18
+        },
+        "target": {
+          "__i": 17
+        }
+      }
+    },
+    {
+      "c": "ht.Edge",
+      "i": 20,
+      "p": {
+        "source": {
+          "__i": 18
+        },
+        "target": {
+          "__i": 17
+        }
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 21,
+      "p": {
+        "image": "json/basic.json",
+        "position": {
+          "x": 472,
+          "y": 364.5
+        },
+        "width": 145,
+        "height": 63
+      },
+      "a": {
+        "address": "DISH#6",
+        "name": "XCVR STE"
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 22,
+      "p": {
+        "parent": {
+          "__i": 21
+        },
+        "image": "json/basic.json",
+        "position": {
+          "x": 472.5,
+          "y": 447.5
+        },
+        "width": 145,
+        "height": 63
+      },
+      "a": {
+        "address": "DISH#6",
+        "name": "XCVR STE1"
+      }
+    },
+    {
+      "c": "ht.Edge",
+      "i": 23,
+      "p": {
+        "source": {
+          "__i": 22
+        },
+        "target": {
+          "__i": 21
+        }
+      }
+    },
+    {
+      "c": "ht.Edge",
+      "i": 24,
+      "p": {
+        "source": {
+          "__i": 22
+        },
+        "target": {
+          "__i": 21
+        }
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 25,
+      "p": {
+        "image": "json/basic.json",
+        "position": {
+          "x": 443,
+          "y": 497
+        },
+        "width": 77,
+        "height": 53
+      },
+      "a": {
+        "address": "DISH#6",
+        "name": "N22"
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 26,
+      "p": {
+        "image": "json/basic.json",
+        "position": {
+          "x": 442.5,
+          "y": 542
+        },
+        "width": 77,
+        "height": 53
+      },
+      "a": {
+        "address": "DISH#6"
+      }
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>11</title>
+<script type="text/javascript" src="demo.js"></script>
+<script type="text/javascript" src="toolbar.js"></script>
+<script type="text/javascript" src="jtopo-0.4.8-min.js"></script>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="jquery.snippet.min.js"></script>
+<script>				
+		$(document).ready(function(){					
+			var canvas = document.getElementById('canvas');			
+			var stage = new JTopo.Stage(canvas);
+			//显示工具栏
+			showJTopoToobar(stage);
+			stage.eagleEye.visible = true
+			var scene = new JTopo.Scene(stage);
+		/* 	scene.background = '11.png'; */
+			
+			var msgNode = new JTopo.TextNode("test");
+			msgNode.zIndex++;
+			msgNode.setBound(250, 50);
+			scene.add(msgNode);
+			
+			function node(text,x, y, img){
+                var node = new JTopo.Node();
+                node.setImage('' + img, true); 
+                node.fontColor = '0,0,0';
+                node.textPosition = 'Middle_Center';
+                node.setLocation(x, y);
+                scene.add(node);
+                node.mouseover(function(){
+                    this.text = 'aaaaaaa';
+                });
+                node.mouseout(function(){
+                    this.text = null;
+                });
+                return node;
+            }  
+			
+			function linkNode(nodeA, nodeZ){
+	                var link = new JTopo.FoldLink(nodeA, nodeZ);
+	                link.lineWidth = 3;
+	                link.strokeColor = '255,255,0';
+	                scene.add(link);
+	                return link;
+	            }
+			 
+			/* var s1 = node(280, 43, 'home.png');
+			s1.alarm = '出现故障'; */
+			var s2 = node('test',350,80,'1.png');
+			var s3 = node('test',350,186,'1.png');
+			var s4 = node('test',350,292,'1.png');
+			if(1==1){
+			s4.alarm = '出现故障';}
+			var s5 = node('test',370,398,'2.png');
+			var s6 = node('test',341,418,'3.png');
+			var s7 = node('test',420,80,'4.png');
+			var s8 = node('test',440,80,'6.png');
+			var s9 = node('test',440,110,'6.png');
+			var s10 = node('test',440,150,'5.png');
+			s10.alarm = '出现故障'
+			var s11 = node('test',440,230,'5.png');
+			var s12 = node('test',440,261,'7.png');
+			var s13 = node('test',440,350,'7.png');
+			var s14 = node('test',440,382,'6.png');
+			var s15 = node('test',440,412,'6.png');
+			
+			linkNode(s10,s11);
+			linkNode(s10,s11);
+			linkNode(s12,s13);
+			linkNode(s12,s13);
+			
+			
+			
+			
+			/* for(var i=0; i<5; i++){
+				var node = new JTopo.Node('Node_' + i);
+				node.setLocation(Math.random() * 600, Math.random() * 400);
+				scene.add(node);		
+			}
+					 */								
+			/* 
+			var beginNode = null;
+
+			var tempNodeA = new JTopo.Node('tempA');;
+			tempNodeA.setSize(1, 1);
+			
+			var tempNodeZ = new JTopo.Node('tempZ');;
+			tempNodeZ.setSize(1, 1);
+			
+			var link = new JTopo.Link(tempNodeA, tempNodeZ);
+			
+			scene.mouseup(function(e){
+				if(e.button == 2){
+					scene.remove(link);
+					return;
+				}
+				if(e.target != null && e.target instanceof JTopo.Node){
+					if(beginNode == null){
+						beginNode = e.target;
+						scene.add(link);
+						tempNodeA.setLocation(e.x, e.y);
+						tempNodeZ.setLocation(e.x, e.y);
+					}else if(beginNode !== e.target){
+						var endNode = e.target;
+						var l = new JTopo.Link(beginNode, endNode);
+						scene.add(l);
+						beginNode = null;
+						scene.remove(link);
+					}else{
+						beginNode = null;
+					}
+				}else{
+					scene.remove(link);
+				}
+			});
+			
+			scene.mousedown(function(e){
+				if(e.target == null || e.target === beginNode || e.target === link){
+					scene.remove(link);
+				}
+			});
+
+			scene.mousemove(function(e){
+				tempNodeZ.setLocation(e.x, e.y);
+			});
+			 */
+			var textfield = $("#jtopo_textfield");
+			scene.dbclick(function(event){
+				if(event.target == null) return;
+				var e = event.target;
+				textfield.css({
+					top: event.pageY,
+					left: event.pageX - e.width/2
+				}).show().attr('value', e.text).focus().select();
+				e.text = "";
+				textfield[0].JTopoNode = e;
+			});
+			
+			$("#jtopo_textfield").blur(function(){
+				textfield[0].JTopoNode.text = textfield.hide().val();
+			});
+		
+		});
+	</script>
+
+</head>
+<body>
+<textarea id="jtopo_textfield" style="display:none;width: 60px;position: absolute;" onkeydown="if(event.keyCode==13)this.blur();"></textarea>
+
+	<center>
+	<div class="wrap_div">
+		<div class="head_nav">
+			<h2 class="logo"><a href="index.html" title="jTopo">jTopo</a></h2>
+		</div>		
+		<div class="head_nav_second">			
+			<ul class="menu" id="nav_menu">
+			
+			</ul>
+		</div>
+		<div class="content">
+		  <div class="left">
+			<ul id="menu">
+			
+			</ul>
+		  </div>
+		  <div class="right">
+				<div id="content">
+					<canvas width="845" height="550" id="canvas"></canvas>	
+					
+				</div>
+		  </div>
+		  <div class="clear"></div>
+		</div>
+	</div>
+	</center>
+	<div class="footer">
+		&nbsp;
+	</div>
+
+</body>
+</html>

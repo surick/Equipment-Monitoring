@@ -1,0 +1,45 @@
+{
+  "v": "6.1.8",
+  "p": {
+    "autoAdjustIndex": true,
+    "hierarchicalRendering": false
+  },
+  "d": [
+    {
+      "c": "ht.Node",
+      "i": 31,
+      "p": {
+        "name": "node1",
+        "image": "json/component-group.json",
+        "position": {
+          "x": 206,
+          "y": 221
+        }
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 32,
+      "p": {
+        "name": "node2",
+        "image": "json/cylinder.json",
+        "position": {
+          "x": 289,
+          "y": 289
+        }
+      }
+    },
+    {
+      "c": "ht.Node",
+      "i": 33,
+      "p": {
+        "name": "node3",
+        "image": "json/server-component.json",
+        "position": {
+          "x": 380,
+          "y": 210
+        }
+      }
+    }
+  ]
+}

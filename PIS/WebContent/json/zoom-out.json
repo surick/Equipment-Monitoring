@@ -1,0 +1,46 @@
+{
+  "background": "rgb(156,156,156)",
+  "width": 16,
+  "height": 16,
+  "comps": [
+    {
+      "type": "circle",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "displayName": "½Úµã",
+      "rect": [
+        1.43716,
+        1.6612,
+        10,
+        9.83302
+      ]
+    },
+    {
+      "type": "shape",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "borderCap": "round",
+      "shadowColor": "#1ABC9C",
+      "points": [
+        12,
+        12,
+        15,
+        15
+      ]
+    },
+    {
+      "type": "shape",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "borderCap": "round",
+      "shadowColor": "#1ABC9C",
+      "points": [
+        4.43716,
+        6.51832,
+        8.43716,
+        6.54513
+      ]
+    }
+  ]
+}

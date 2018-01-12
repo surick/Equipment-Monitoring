@@ -1,0 +1,27 @@
+{
+  "background": "rgb(156,156,156)",
+  "width": 16,
+  "height": 16,
+  "comps": [
+    {
+      "type": "shape",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "rotation": 5.49779,
+      "closePath": true,
+      "points": [
+        6.16117,
+        -0.83884,
+        0.66117,
+        13.16116,
+        6.21083,
+        10.58206,
+        11.66117,
+        13.16116,
+        6.16117,
+        -0.83884
+      ]
+    }
+  ]
+}

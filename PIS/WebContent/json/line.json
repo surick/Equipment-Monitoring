@@ -1,0 +1,44 @@
+{
+  "background": "rgb(156,156,156)",
+  "width": 16,
+  "height": 16,
+  "comps": [
+    {
+      "type": "circle",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "rect": [
+        11.42775,
+        1.4389,
+        3.1445,
+        3.1222
+      ]
+    },
+    {
+      "type": "circle",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "rect": [
+        1.42775,
+        11.4389,
+        3.1445,
+        3.1222
+      ]
+    },
+    {
+      "type": "shape",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "displayName": "不规则图形",
+      "points": [
+        12,
+        4,
+        4,
+        12
+      ]
+    }
+  ]
+}

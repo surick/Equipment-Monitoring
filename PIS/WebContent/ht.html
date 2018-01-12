@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style>
+.htmlWrapper {
+	font-size: 13px;
+	width: 60px;
+	height: 60px;
+}
+</style>
+<script type="text/javascript" src="js/ht.js"></script>
+<script type="text/javascript" src="js/ht-cssanimation.js"></script>
+<script type="text/javascript" src="js/ht-palette.js"></script>
+<script type="text/javascript" src="js/ht-form.js"></script>
+<script type="text/javascript" src="js/ht-xeditinteractor.js"></script>
+<script type="text/javascript" src="js/ht-historymanager.js"></script>
+<script type="text/javascript" src="js/ht-contextmenu.js"></script>
+<script type="text/javascript" src="js/contextmenu.js"></script>
+<script type="text/javascript" src="js/ht-obj.js"></script>
+<script type="text/javascript" src="js/ht-htmlnode.js"></script>
+<script type="text/javascript">
+            function init() {
+                var palette = new ht.widget.Palette(),
+                    graphView = window.graph = new ht.graph.GraphView(),
+                    dataModel = graphView.dm(),
+                    
+                    tree = new ht.widget.TreeView(dataModel),
+                    properView = new ht.widget.PropertyView(dataModel),
+                    formPane = new ht.widget.FormPane(),
+                    leftSplitView = new ht.widget.SplitView(palette, tree, 'v', 200),
+              
+                    rightSplitView = new ht.widget.SplitView(properView, formPane, 'v', 200),
+                    splitView = new ht.widget.SplitView(leftSplitView, graphView, "h", 200),
+                    mainSplitView = new ht.widget.SplitView(splitView, rightSplitView, 'h', -160),
+                    historyManager = window.historyManager = new ht.HistoryManager(dataModel),
+                    view = mainSplitView.getView(),
+                    contextMenu = new ht.widget.ContextMenu(),
+                    style = view.style;
+                	initDataModel(dataModel);
+                	initPaletteModel(palette.dm());
+                	historyManager.clear();
+                	graphView.setEditable(true);
+
+                	properView.addProperties([{
+                        		name: "name",
+                        		displayName: "设备名",
+                        		accessType: 'attr',
+                        		editable: true
+                			},{
+                        		name: "address",
+                        		displayName: "设备位置",
+                        		accessType: 'attr',
+                        		editable: true
+                			},{
+                    			name: 'body.color',
+                    			displayName:"颜色",
+                    			accessType: 'style',
+                    			editable: true,
+                    			valueType: 'color'
+                			}]);
+
+                	palette.handleDragAndDrop = function(e, state) {
+                    	if (state === 'end') {
+                        	var bound = graphView.getView().getBoundingClientRect(),
+                            point = ht.Default.getClientPoint(e);
+
+                        	if (ht.Default.containsPoint({
+                            	x: bound.left,
+                            	y: bound.top,
+                            	width: bound.width,
+                            	height: bound.height
+                        	}, point)) {
+                            	var paletteNode = this.sm().ld(),
+                                node = new ht.HtmlNode(),
+                                lp = graphView.lp(e);
+                            	graphView.dm().add(node);
+                            	node.setPosition(lp.x, lp.y);
+                            	node.setImage(paletteNode.getImage());
+                           		/* node.setHtml(paletteNode.getHtml()); */
+                           		/* node.setName(paletteNode.getName()); */
+                        	}
+                    	}
+                	};
+               		style.position = "absolute";
+                	style.top = "0";
+                	style.right = "0";
+                	style.bottom = "0";
+                	style.left = "0";
+                	document.body.appendChild(view);
+
+                	window.addEventListener("resize", function(e) {
+                    mainSplitView.iv();
+                	});
+
+                	window.addEventListener('keydown', function(e) {
+                    	// ctrl + shift + z
+                    	if (ht.Default.isCtrlDown(e) && ht.Default.isShiftDown(e) && e.keyCode === 90) {
+                        	historyManager.redo();
+                    	}
+                    	// ctrl + z
+                    	else if (ht.Default.isCtrlDown(e) && e.keyCode === 90) {
+                        	historyManager.undo();
+                    	}
+               		});
+
+                	var editInteractor = window.editInteractor = graph.getEditInteractor();
+                	contextMenu.addTo(graph.getView());
+                	contextMenu.afterShow = function() {
+                    	editInteractor._pause = true;
+                	};
+                	contextMenu.afterHide = function() {
+                   		editInteractor._pause = false;
+                	};
+
+                	contextMenu.beforeShow = function(e) {
+                    	var mouseData = graph.getDataAt(e.originEvent),
+                        	hoverSegmentIndex = editInteractor._hoverSegmentIndex,
+                        	segments;
+
+                    	if (hoverSegmentIndex >= 0) {
+                        	var segment,
+                            data = editInteractor._shape || editInteractor._edge,
+                            items;
+
+                        	if (data instanceof ht.Shape) {
+                            	segments = data.getSegments();
+                        	} else if (data instanceof ht.Edge) {
+                            	segments = data.s("edge.segments")
+                        	}
+
+                        	if (!segments) {
+                            	segments = editInteractor.getDefaultSegments(data);
+                        	}
+                        	if (data instanceof ht.Shape && data.isClosePath() && segments.indexOf(5) < 0) {
+                            	segments.add(5);
+                        	}
+                        	segment = segments.get(hoverSegmentIndex);
+
+                        	contextMenuChangeToMove.selected = segment === 1;
+                        	contextMenuChangeToLine.selected = segment === 2;
+                        	contextMenuChangeToQuadratic.selected = segment === 3;
+                        	contextMenuChangeToBezier.selected = segment === 4;
+                        	contextMenuClosePath.selected = segments.indexOf(5) >= 0;
+                        	contextMenuClosePath.action = function(item) {
+                            	if (data instanceof ht.Shape) {
+                                	historyManager.beginTransaction();
+                                	segments = new ht.List(segments._as.slice(0));
+                                	segments.remove(5);
+                                	if (item.selected) {
+                                    	data.setClosePath(true);
+                                	} else {
+                                    	data.setClosePath(false);
+                                	}
+                                	data.setSegments(segments);
+                                	historyManager.endTransaction();
+                            	}
+                        	}
+                        	if ([1, 2, 3, 4].indexOf(segment) >= 0) {
+                            	items = [contextMenuChangeToMove, contextMenuChangeToLine, contextMenuChangeToQuadratic, contextMenuChangeToBezier, contextMenuAddPoint];
+                        	} else if (segment === 5) {
+                            	items = [contextMenuAddPoint];
+                        	}
+                        	if (data instanceof ht.Shape) {
+                            	items.push(contextMenuClosePath);
+                        	}
+                        		contextMenu.setItems(items);
+                    		} else if (editInteractor._removePointIndex >= 0) {
+                        		contextMenu.setItems([contextMenuRemovePoint]);
+                    		} else if (mouseData && mouseData instanceof ht.Shape) {
+                        		segments = mouseData.getSegments();
+
+                        	if ((segments && segments.indexOf(5) >= 0) || mouseData.isClosePath()) {
+                            	contextMenuClosePath.selected = true;
+                        	} else {
+                            	contextMenuClosePath.selected = false;
+                        	}
+                        	contextMenuClosePath.action = function(item) {
+                            	historyManager.beginTransaction();
+                            	if (segments && segments.indexOf(5) >= 0) {
+                                	segments = new ht.List(segments._as.slice(0));
+                                	segments.remove(5);
+                                	mouseData.setSegments(segments);
+                            	}
+                            	if (item.selected) {
+                                	mouseData.setClosePath(true);
+                            	} else {
+                                	mouseData.setClosePath(false);
+                            	}
+                            		historyManager.endTransaction();
+                        		}
+                        			contextMenu.setItems([contextMenuClosePath]);
+                    			} else {
+                        			contextMenu.setItems(null);
+                    			}
+                			};
+                
+                formPane.addRow([
+                    {
+                        id: 'export',
+                        button: {                              
+                            label: 'Export JSON',
+                            onClicked: function(){
+                                var json = dataModel.serialize();
+                                formPane.v('textArea', json);
+                            }
+                        }
+                    },
+                    {
+                        button: {                            
+                            label: 'Import JSON',
+                            onClicked: function(){
+                                dataModel.clear();
+                                dataModel.deserialize(formPane.v('textArea'));
+                            }
+                        }
+                    }
+                ],
+                [0.1, 0.1]);                                  
+                formPane.addRow([
+                    {
+                        id: 'textArea',
+                        textArea: {
+                        }
+                    }
+                ],
+                [0.1], 0.1);  
+                formPane.getItemById('export').element.onClicked();
+            }
+
+            function initDataModel(dataModel) {
+              
+            }
+
+            ht.Default.setImage('basic', {
+                width: 150,
+                height: 100,
+                comps: [
+                    {
+                        type: 'rect',
+                        rect: [10, 20, 130, 80],
+                        borderWidth: 1,
+                        borderColor: 'cyan',
+                        background: '#EED5B7',
+                        depth: 5
+                    }
+                ]
+            });
+            
+            function initPaletteModel(model) {
+                var group = new ht.Group(),
+                    node = new ht.Node(),
+                    node1 = new ht.Node();
+                    node2 = new ht.Node();
+
+                	group.setName("设备");
+                	group.setExpanded(true);
+               		/*node.setHtml("<div class='htmlWrapper'>test</div>"); */
+                	//node.setImage("rect.png");
+                	node.setName("node1");
+                	node.s('draggable', true);             	
+                	node2.setImage('basic');
+                	node2.setName("node2");
+                	node2.s("draggable", true);              	
+                	node1.setName("node3");
+                	node1.s('draggable', true);               	
+                	group.addChild(node);
+                	group.addChild(node2);
+                	group.addChild(node1);
+                	model.add(group);
+                	model.add(node);
+                	model.add(node2);
+                	model.add(node1);
+            }
+        </script>
+</head>
+<body onload="init();">
+</body>
+</html>

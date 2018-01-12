@@ -1,0 +1,98 @@
+{
+  "background": "rgb(156,156,156)",
+  "width": 16,
+  "height": 16,
+  "comps": [
+    {
+      "type": "shape",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "displayName": "不规则图形",
+      "points": [
+        4,
+        3,
+        12,
+        5
+      ]
+    },
+    {
+      "type": "shape",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "displayName": "不规则图形",
+      "points": [
+        4,
+        9.7,
+        12,
+        6.3
+      ]
+    },
+    {
+      "type": "shape",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "displayName": "不规则图形",
+      "points": [
+        4,
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "type": "circle",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "gradientColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "rect": [
+        0.8555,
+        8.8778,
+        3.1445,
+        3.1222
+      ]
+    },
+    {
+      "type": "circle",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "gradientColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "rect": [
+        11.8555,
+        12,
+        3.1445,
+        3.1222
+      ]
+    },
+    {
+      "type": "circle",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "gradientColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "rect": [
+        11.8555,
+        3.8778,
+        3.1445,
+        3.1222
+      ]
+    },
+    {
+      "type": "circle",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "gradientColor": "rgb(255,255,255)",
+      "shadowColor": "#1ABC9C",
+      "rect": [
+        0.8555,
+        0.8778,
+        3.1445,
+        3.1222
+      ]
+    }
+  ]
+}

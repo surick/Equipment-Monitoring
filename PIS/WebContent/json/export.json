@@ -1,0 +1,54 @@
+{
+  "background": "rgb(156,156,156)",
+  "width": 16,
+  "height": 16,
+  "comps": [
+    {
+      "type": "roundRect",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "cornerRadius": 1,
+      "rect": [
+        1.49242,
+        6.50472,
+        12.95312,
+        7.93528
+      ]
+    },
+    {
+      "type": "rect",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "rotation": 6.28319,
+      "rect": [
+        4.5,
+        2.56247,
+        6.96,
+        3.94225
+      ]
+    },
+    {
+      "type": "rect",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "rect": [
+        4.5,
+        12.48548,
+        7,
+        1.95452
+      ]
+    },
+    {
+      "type": "shape",
+      "borderWidth": 1,
+      "borderColor": "rgb(255,255,255)",
+      "borderCap": "round",
+      "points": [
+        5,
+        8.48,
+        11.5,
+        8.48
+      ]
+    }
+  ]
+}

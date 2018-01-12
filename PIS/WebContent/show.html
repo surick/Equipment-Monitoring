@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script type="text/javascript" src="ht.js"></script>
+        <script type="text/javascript" src="ht-cssanimation.js"></script>
+        <script type="text/javascript" src="ht-form.js"></script>
+        <script type="text/javascript">
+        function init(){  
+           	borderPane = new ht.widget.BorderPane();
+          /*   borderPane.setTopView(createToolbar());
+            borderPane.setBottomView(createToolbar(true));
+               */
+            formPane = new ht.widget.FormPane();                                             
+            borderPane.setCenterView(formPane);              
+    
+            view = borderPane.getView();
+            view.className = 'main';
+            document.body.appendChild(view);    
+            window.addEventListener('resize', function (e) {
+                borderPane.invalidate();
+            }, false);                          
+            
+            formPane.addRow([
+                    {
+                        button: {                            
+                            label: 'Import JSON',
+                            icon: 'json/export.json'
+                            onClicked: function(){
+                                dataModel.clear();
+                                dataModel.deserialize(formPane.v('textArea'));
+                            }
+                        }
+                    }
+                ],[0.1]);
+        }
+        </script>
+    </head>
+    <body onload="init();">
+
+    </body>
+</html>
