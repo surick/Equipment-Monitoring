@@ -28,7 +28,7 @@
             require('echarts/util/mapData/params').params.demo1 = {
                 getGeoJson: function (callback) {
                     $.ajax({
-                            url: "svg/layout-1.svg",
+                            url: "svg/layout2.svg",
                         dataType: 'xml',
                         success: function (xml) {
                             callback(xml)
@@ -67,14 +67,6 @@
                         saveAsImage : {show: true}
                     }
                 },
-                visualMap: {
-                    min: 0,
-                    max: 150,
-                    text:['High','Low'],
-                    seriesIndex: 0,
-                    calculable : true,
-                    color: ['red','yellow']
-                },
                 series : [
                     {
                         name: '设备信息',
@@ -86,17 +78,7 @@
                             emphasis:{label:{show:true}}
                         },
                         data:[
-                            {name: '设备1',value:1},
-                            {name: '设备3',value:2},
-                            {name: '设备4',value:62},
-                            {name: '设备5',value:52},
-                            {name: '设备6',value:42},
-                            {name: '设备7',value:32},
-                            {name: '设备8',value:22},
-                            {name: '设备9',value:112},
-                            {name: '设备11',value:12},
-                            {name: '设备12',value:112},
-                            {name: '设备13',value:122},
+
                         ]
                     }
                 ]
