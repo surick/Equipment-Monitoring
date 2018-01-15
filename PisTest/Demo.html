@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Echarts扩展_SVG</title>
+    <title>Echarts扩展_SVG2</title>
     <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="js/esl.js"></script>
 </head>
@@ -28,7 +28,7 @@
             require('echarts/util/mapData/params').params.demo1 = {
                 getGeoJson: function (callback) {
                     $.ajax({
-                            url: "svg/layout2.svg",
+                        url: "svg/layout2.svg",
                         dataType: 'xml',
                         success: function (xml) {
                             callback(xml)
@@ -42,7 +42,7 @@
             var option = {
                 backgroundColor:'#eee',
                 title : {
-                    text : 'XXXX',
+                    text : 'xxx',
                     textStyle: {
                         color: '#000'
                     }
@@ -52,11 +52,17 @@
                     formatter: function (obj) {
                         if(obj[2] == 1){
                             return obj[1]+'</br>运行故障';
+                        }else if(obj[2] == 2){
+                            return obj[1]+'</br>运行正常';
                         }else{
-                            return obj[1]+'</br>运行正常'
+                            return obj[1];
                         }
                         //return obj[2];
                     }
+                },
+                color: ['rgba(218, 70, 214, 1)', 'rgba(100, 149, 237, 1)', 'green'],
+                legend: {
+                    data: ['产线1', '产线2', '产线3']
                 },
                 toolbox: {
                     show : true,
@@ -68,25 +74,187 @@
                     }
                 },
                 series : [
+                	{
+                        type: 'map',
+                        mapType: 'demo1',
+                        data: [],
+                        markPoint: {
+                            symbol: 'emptyCircle',
+                            effect: {
+                                show: true,
+                                color: 'red'
+                            },
+                            data: []
+                        }
+                    },
                     {
-                        name: '设备信息',
+                        name: '产线1',
                         type: 'map',
                         mapType: 'demo1',
                         roam:true,
                         itemStyle:{
-                            //normal:{label:{show:true}},
+                            normal:{label:{show:true}},
                             emphasis:{label:{show:true}}
                         },
-                        data:[
-
-                        ]
-                    }
+                        data: [
+                            //{name:'祖明',value:2}
+                        ],
+                        geoCoord: {
+                            '设备1': [80, 60],
+                            '设备2': [80, 80],
+                            '设备3': [80, 100],
+                            '设备4': [80, 120],
+                            '设备5': [80, 140],
+                            '设备6': [80, 160],
+                            '设备7': [80, 180],
+                            '设备8': [80, 200],
+                            '设备9': [80, 220],
+                            '设备10': [80, 240],
+                            '设备11': [80, 260],
+                            '设备12': [80, 280]
+                        },
+                        markPoint : {
+                            symbolSize : 3,
+                            data : [
+                                {name: '设备1'},
+                                {name: '设备2'},
+                                {name: '设备3'},
+                                {name: '设备4'},
+                                {name: '设备5'},
+                                {name: '设备6'},
+                                {name: '设备7'},
+                                {name: '设备8'},
+                                {name: '设备9'},
+                                {name: '设备10'},
+                                {name: '设备11'},
+                                {name: '设备12'}
+                            ]
+                        }
+                    },
+                    {
+                        name: '产线2',
+                        type: 'map',
+                        mapType: 'demo1',
+                        roam:true,
+                        itemStyle:{
+                            normal:{label:{show:true}},
+                            emphasis:{label:{show:true}}
+                        },
+                        data: [
+                            //{name:'祖明',value:2}
+                        ],
+                        geoCoord: {
+                            '设备14': [180, 60],
+                            '设备15': [180, 80],
+                            '设备16': [180, 100],
+                            '设备17': [180, 120],
+                            '设备18': [180, 140],
+                            '设备19': [180, 160],
+                            '设备20': [180, 180],
+                            '设备21': [180, 200],
+                            '设备22': [180, 220],
+                            '设备23': [180, 240],
+                            '设备24': [180, 260],
+                            '设备25': [180, 280],
+                        },
+                        markPoint : {
+                            symbolSize : 3,
+                            data : [
+                                {name: '设备14'},
+                                {name: '设备15'},
+                                {name: '设备16'},
+                                {name: '设备17'},
+                                {name: '设备18'},
+                                {name: '设备19'},
+                                {name: '设备20'},
+                                {name: '设备21'},
+                                {name: '设备22'},
+                                {name: '设备23'},
+                                {name: '设备24'},
+                                {name: '设备25'}
+                            ]
+                        }
+                    },
+                    {
+                        name: '产线3',
+                        type: 'map',
+                        mapType: 'demo1',
+                        roam:true,
+                        itemStyle:{
+                            normal:{label:{show:true}},
+                            emphasis:{label:{show:true}}
+                        },
+                        data: [
+                            //{name:'祖明',value:2}
+                        ],
+                        geoCoord: {
+                            '设备26': [310, 60],
+                            '设备27': [310, 80],
+                            '设备28': [310, 100],
+                            '设备29': [310, 120],
+                            '设备30': [310, 140],
+                            '设备31': [310, 160],
+                            '设备32': [310, 180],
+                            '设备33': [310, 200],
+                            '设备34': [310, 220],
+                            '设备35': [310, 240],
+                            '设备36': [310, 260],
+                            '设备37': [310, 280],
+                            '设备38': [80, 340],
+                            '设备39': [180, 340],
+                            '设备40': [280, 340]
+                        },
+                        markPoint : {
+                            symbolSize : 3,
+                            data : [
+                                {name: '设备26'},
+                                {name: '设备27'},
+                                {name: '设备28'},
+                                {name: '设备29'},
+                                {name: '设备30'},
+                                {name: '设备31'},
+                                {name: '设备32'},
+                                {name: '设备33'},
+                                {name: '设备34'},
+                                {name: '设备35'},
+                                {name: '设备36'},
+                                {name: '设备37'},
+                                {name: '设备38'},
+                                {name: '设备39'},
+                                {name: '设备40'}
+                            ]
+                        }
+                    },
                 ]
             };
-
-
             // 为echarts对象加载数据
             myChart.setOption(option);
+            $.ajax({
+                method: 'POST',
+                url: 'demo.jsp',
+                success: function(result){
+                    console.info(result);
+                    if(result){
+                        //get max and series data
+                        var jsonObj = $.parseJSON(result);
+                        myChart.setOption({
+                            series:[{
+                            	//name: '设备故障',
+                                type: 'map',
+                                mapType: 'demo1',
+                                data: [],
+                                markPoint: {
+                                    symbol: 'emptyCircle',
+                                    effect: {
+                                        show: true,
+                                        color: 'red'},
+                                    data: jsonObj.data //json对象中的data, data为JSONArray
+                                }
+                            }]
+                        });
+                    }
+                }
+            });
         }
     );
 </script>
