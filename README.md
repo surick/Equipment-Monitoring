@@ -1,2 +1,3 @@
 # Equipment Monitoring
 #正在做的...
+#目前考虑使用开源的echarts插件，不用HT
