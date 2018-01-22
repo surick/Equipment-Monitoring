@@ -1,0 +1,1781 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://siemens.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://siemens.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://siemens.com/">
+      <s:element name="LocationName">
+        <s:complexType />
+      </s:element>
+      <s:element name="LocationNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LocationNameResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApplicationMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="applicationModuleId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ApplicationMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ApplicationMenuResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HeaderSetupMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HeaderSetupMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HeaderSetupMenuResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HeaderMenu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HeaderMenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HeaderMenuResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoginUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginUserResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OldPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="NewPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangePasswordResult" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="StatusMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogUserOut">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strSessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogUserOutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogUserOutResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationModules">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetApplicationModulesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetApplicationModulesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="strUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserGroupsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfigFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetConfigFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetConfigFileResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLicense">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLicenseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetLicenseResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMenuFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMenuFileResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSessionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVersion">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetVersionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVersionResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsAvailable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsAvailableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsAvailableResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Menu">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MenuResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MenuResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseLicense">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReleaseLicenseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReleaseLicenseResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveConfigFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="AppSettings" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveConfigFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveConfigFileResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMenuFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Menu" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveMenuFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveMenuFileResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSession">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="sessionData">
+              <s:complexType>
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateSessionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateSessionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LocationNameSoapIn">
+    <wsdl:part name="parameters" element="tns:LocationName" />
+  </wsdl:message>
+  <wsdl:message name="LocationNameSoapOut">
+    <wsdl:part name="parameters" element="tns:LocationNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:ApplicationMenu" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:ApplicationMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="HeaderSetupMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:HeaderSetupMenu" />
+  </wsdl:message>
+  <wsdl:message name="HeaderSetupMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:HeaderSetupMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="HeaderMenuSoapIn">
+    <wsdl:part name="parameters" element="tns:HeaderMenu" />
+  </wsdl:message>
+  <wsdl:message name="HeaderMenuSoapOut">
+    <wsdl:part name="parameters" element="tns:HeaderMenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoginUserSoapIn">
+    <wsdl:part name="parameters" element="tns:LoginUser" />
+  </wsdl:message>
+  <wsdl:message name="LoginUserSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogUserOutSoapIn">
+    <wsdl:part name="parameters" element="tns:LogUserOut" />
+  </wsdl:message>
+  <wsdl:message name="LogUserOutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogUserOutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationModulesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetApplicationModules" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationModulesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetApplicationModulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroups" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserGroups" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigFileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConfigFile" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigFileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConfigFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLicense" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLicenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuFileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMenuFile" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuFileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMenuFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSession" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVersion" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVersionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsAvailableSoapIn">
+    <wsdl:part name="parameters" element="tns:IsAvailable" />
+  </wsdl:message>
+  <wsdl:message name="IsAvailableSoapOut">
+    <wsdl:part name="parameters" element="tns:IsAvailableResponse" />
+  </wsdl:message>
+  <wsdl:message name="MenuSoapIn">
+    <wsdl:part name="parameters" element="tns:Menu" />
+  </wsdl:message>
+  <wsdl:message name="MenuSoapOut">
+    <wsdl:part name="parameters" element="tns:MenuResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseLicenseSoapIn">
+    <wsdl:part name="parameters" element="tns:ReleaseLicense" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseLicenseSoapOut">
+    <wsdl:part name="parameters" element="tns:ReleaseLicenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveConfigFileSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveConfigFile" />
+  </wsdl:message>
+  <wsdl:message name="SaveConfigFileSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveConfigFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveMenuFileSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveMenuFile" />
+  </wsdl:message>
+  <wsdl:message name="SaveMenuFileSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveMenuFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSessionSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateSession" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSessionSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateSessionResponse" />
+  </wsdl:message>
+  <wsdl:message name="LocationNameHttpGetIn" />
+  <wsdl:message name="LocationNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationMenuHttpGetIn">
+    <wsdl:part name="sessionId" type="s:string" />
+    <wsdl:part name="applicationId" type="s:string" />
+    <wsdl:part name="applicationModuleId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationMenuHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HeaderSetupMenuHttpGetIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HeaderSetupMenuHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HeaderMenuHttpGetIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HeaderMenuHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LogUserOutHttpGetIn">
+    <wsdl:part name="strSessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogUserOutHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationModulesHttpGetIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationModulesHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string" />
+    <wsdl:part name="strUserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigFileHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigFileHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseHttpGetIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuFileHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuFileHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionHttpGetIn" />
+  <wsdl:message name="GetVersionHttpGetOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="IsAvailableHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsAvailableHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="MenuHttpGetIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MenuHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseLicenseHttpGetIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseLicenseHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SaveConfigFileHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string" />
+    <wsdl:part name="AppSettings" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveConfigFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SaveMenuFileHttpGetIn">
+    <wsdl:part name="sessionID" type="s:string" />
+    <wsdl:part name="Menu" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveMenuFileHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="LocationNameHttpPostIn" />
+  <wsdl:message name="LocationNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationMenuHttpPostIn">
+    <wsdl:part name="sessionId" type="s:string" />
+    <wsdl:part name="applicationId" type="s:string" />
+    <wsdl:part name="applicationModuleId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ApplicationMenuHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HeaderSetupMenuHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HeaderSetupMenuHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="HeaderMenuHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HeaderMenuHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="LogUserOutHttpPostIn">
+    <wsdl:part name="strSessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="LogUserOutHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationModulesHttpPostIn">
+    <wsdl:part name="ApplicationID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetApplicationModulesHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string" />
+    <wsdl:part name="strUserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserGroupsHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigFileHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigFileHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLicenseHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuFileHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetMenuFileHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSessionHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetVersionHttpPostIn" />
+  <wsdl:message name="GetVersionHttpPostOut">
+    <wsdl:part name="Body" />
+  </wsdl:message>
+  <wsdl:message name="IsAvailableHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsAvailableHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="MenuHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MenuHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseLicenseHttpPostIn">
+    <wsdl:part name="SessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ReleaseLicenseHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SaveConfigFileHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string" />
+    <wsdl:part name="AppSettings" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveConfigFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SaveMenuFileHttpPostIn">
+    <wsdl:part name="sessionID" type="s:string" />
+    <wsdl:part name="Menu" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SaveMenuFileHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="ExecutiveSoap">
+    <wsdl:operation name="LocationName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the name of the Enterprise Location.</wsdl:documentation>
+      <wsdl:input message="tns:LocationNameSoapIn" />
+      <wsdl:output message="tns:LocationNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generates the data for the Application Menu</wsdl:documentation>
+      <wsdl:input message="tns:ApplicationMenuSoapIn" />
+      <wsdl:output message="tns:ApplicationMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeaderSetupMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Renders the Header menu for the Setup framework.</wsdl:documentation>
+      <wsdl:input message="tns:HeaderSetupMenuSoapIn" />
+      <wsdl:output message="tns:HeaderSetupMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeaderMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Renders the Header menu for the framework.</wsdl:documentation>
+      <wsdl:input message="tns:HeaderMenuSoapIn" />
+      <wsdl:output message="tns:HeaderMenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Performs user authentication.  Returns SessionID if successful.</wsdl:documentation>
+      <wsdl:input message="tns:LoginUserSoapIn" />
+      <wsdl:output message="tns:LoginUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Performs user authentication and changes user password.  Returns SessionID if successful.</wsdl:documentation>
+      <wsdl:input message="tns:ChangePasswordSoapIn" />
+      <wsdl:output message="tns:ChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogUserOut">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Logs a user off the system</wsdl:documentation>
+      <wsdl:input message="tns:LogUserOutSoapIn" />
+      <wsdl:output message="tns:LogUserOutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationModules">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of applications supported by this Executive</wsdl:documentation>
+      <wsdl:input message="tns:GetApplicationModulesSoapIn" />
+      <wsdl:output message="tns:GetApplicationModulesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get user information</wsdl:documentation>
+      <wsdl:input message="tns:GetUsersSoapIn" />
+      <wsdl:output message="tns:GetUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get group information</wsdl:documentation>
+      <wsdl:input message="tns:GetGroupsSoapIn" />
+      <wsdl:output message="tns:GetGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get user group information</wsdl:documentation>
+      <wsdl:input message="tns:GetUserGroupsSoapIn" />
+      <wsdl:output message="tns:GetUserGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to retrieve the web.config file for the Web Application</wsdl:documentation>
+      <wsdl:input message="tns:GetConfigFileSoapIn" />
+      <wsdl:output message="tns:GetConfigFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicense">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to obtain a license for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:GetLicenseSoapIn" />
+      <wsdl:output message="tns:GetLicenseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to retrieve the Xml Menu file for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:GetMenuFileSoapIn" />
+      <wsdl:output message="tns:GetMenuFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the Session information for a user Session.</wsdl:documentation>
+      <wsdl:input message="tns:GetSessionSoapIn" />
+      <wsdl:output message="tns:GetSessionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the version of the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:GetVersionSoapIn" />
+      <wsdl:output message="tns:GetVersionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAvailable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifies if the service is available.  Verifies the SessionID if supplied.</wsdl:documentation>
+      <wsdl:input message="tns:IsAvailableSoapIn" />
+      <wsdl:output message="tns:IsAvailableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the HTML that represents the Menu for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:MenuSoapIn" />
+      <wsdl:output message="tns:MenuSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseLicense">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Releases a license for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:ReleaseLicenseSoapIn" />
+      <wsdl:output message="tns:ReleaseLicenseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveConfigFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to update the web.config file for the Web Application</wsdl:documentation>
+      <wsdl:input message="tns:SaveConfigFileSoapIn" />
+      <wsdl:output message="tns:SaveConfigFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMenuFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to update the Xml Menu file for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:SaveMenuFileSoapIn" />
+      <wsdl:output message="tns:SaveMenuFileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates the Session information for a user Session.</wsdl:documentation>
+      <wsdl:input message="tns:UpdateSessionSoapIn" />
+      <wsdl:output message="tns:UpdateSessionSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ExecutiveHttpGet">
+    <wsdl:operation name="LocationName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the name of the Enterprise Location.</wsdl:documentation>
+      <wsdl:input message="tns:LocationNameHttpGetIn" />
+      <wsdl:output message="tns:LocationNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generates the data for the Application Menu</wsdl:documentation>
+      <wsdl:input message="tns:ApplicationMenuHttpGetIn" />
+      <wsdl:output message="tns:ApplicationMenuHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeaderSetupMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Renders the Header menu for the Setup framework.</wsdl:documentation>
+      <wsdl:input message="tns:HeaderSetupMenuHttpGetIn" />
+      <wsdl:output message="tns:HeaderSetupMenuHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeaderMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Renders the Header menu for the framework.</wsdl:documentation>
+      <wsdl:input message="tns:HeaderMenuHttpGetIn" />
+      <wsdl:output message="tns:HeaderMenuHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogUserOut">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Logs a user off the system</wsdl:documentation>
+      <wsdl:input message="tns:LogUserOutHttpGetIn" />
+      <wsdl:output message="tns:LogUserOutHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationModules">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of applications supported by this Executive</wsdl:documentation>
+      <wsdl:input message="tns:GetApplicationModulesHttpGetIn" />
+      <wsdl:output message="tns:GetApplicationModulesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get user information</wsdl:documentation>
+      <wsdl:input message="tns:GetUsersHttpGetIn" />
+      <wsdl:output message="tns:GetUsersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get group information</wsdl:documentation>
+      <wsdl:input message="tns:GetGroupsHttpGetIn" />
+      <wsdl:output message="tns:GetGroupsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get user group information</wsdl:documentation>
+      <wsdl:input message="tns:GetUserGroupsHttpGetIn" />
+      <wsdl:output message="tns:GetUserGroupsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to retrieve the web.config file for the Web Application</wsdl:documentation>
+      <wsdl:input message="tns:GetConfigFileHttpGetIn" />
+      <wsdl:output message="tns:GetConfigFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicense">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to obtain a license for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:GetLicenseHttpGetIn" />
+      <wsdl:output message="tns:GetLicenseHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to retrieve the Xml Menu file for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:GetMenuFileHttpGetIn" />
+      <wsdl:output message="tns:GetMenuFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the Session information for a user Session.</wsdl:documentation>
+      <wsdl:input message="tns:GetSessionHttpGetIn" />
+      <wsdl:output message="tns:GetSessionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the version of the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:GetVersionHttpGetIn" />
+      <wsdl:output message="tns:GetVersionHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAvailable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifies if the service is available.  Verifies the SessionID if supplied.</wsdl:documentation>
+      <wsdl:input message="tns:IsAvailableHttpGetIn" />
+      <wsdl:output message="tns:IsAvailableHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the HTML that represents the Menu for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:MenuHttpGetIn" />
+      <wsdl:output message="tns:MenuHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseLicense">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Releases a license for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:ReleaseLicenseHttpGetIn" />
+      <wsdl:output message="tns:ReleaseLicenseHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveConfigFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to update the web.config file for the Web Application</wsdl:documentation>
+      <wsdl:input message="tns:SaveConfigFileHttpGetIn" />
+      <wsdl:output message="tns:SaveConfigFileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMenuFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to update the Xml Menu file for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:SaveMenuFileHttpGetIn" />
+      <wsdl:output message="tns:SaveMenuFileHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="ExecutiveHttpPost">
+    <wsdl:operation name="LocationName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the name of the Enterprise Location.</wsdl:documentation>
+      <wsdl:input message="tns:LocationNameHttpPostIn" />
+      <wsdl:output message="tns:LocationNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Generates the data for the Application Menu</wsdl:documentation>
+      <wsdl:input message="tns:ApplicationMenuHttpPostIn" />
+      <wsdl:output message="tns:ApplicationMenuHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeaderSetupMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Renders the Header menu for the Setup framework.</wsdl:documentation>
+      <wsdl:input message="tns:HeaderSetupMenuHttpPostIn" />
+      <wsdl:output message="tns:HeaderSetupMenuHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HeaderMenu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Renders the Header menu for the framework.</wsdl:documentation>
+      <wsdl:input message="tns:HeaderMenuHttpPostIn" />
+      <wsdl:output message="tns:HeaderMenuHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogUserOut">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Logs a user off the system</wsdl:documentation>
+      <wsdl:input message="tns:LogUserOutHttpPostIn" />
+      <wsdl:output message="tns:LogUserOutHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationModules">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of applications supported by this Executive</wsdl:documentation>
+      <wsdl:input message="tns:GetApplicationModulesHttpPostIn" />
+      <wsdl:output message="tns:GetApplicationModulesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get user information</wsdl:documentation>
+      <wsdl:input message="tns:GetUsersHttpPostIn" />
+      <wsdl:output message="tns:GetUsersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get group information</wsdl:documentation>
+      <wsdl:input message="tns:GetGroupsHttpPostIn" />
+      <wsdl:output message="tns:GetGroupsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get user group information</wsdl:documentation>
+      <wsdl:input message="tns:GetUserGroupsHttpPostIn" />
+      <wsdl:output message="tns:GetUserGroupsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to retrieve the web.config file for the Web Application</wsdl:documentation>
+      <wsdl:input message="tns:GetConfigFileHttpPostIn" />
+      <wsdl:output message="tns:GetConfigFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLicense">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to obtain a license for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:GetLicenseHttpPostIn" />
+      <wsdl:output message="tns:GetLicenseHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to retrieve the Xml Menu file for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:GetMenuFileHttpPostIn" />
+      <wsdl:output message="tns:GetMenuFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSession">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Retrieves the Session information for a user Session.</wsdl:documentation>
+      <wsdl:input message="tns:GetSessionHttpPostIn" />
+      <wsdl:output message="tns:GetSessionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the version of the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:GetVersionHttpPostIn" />
+      <wsdl:output message="tns:GetVersionHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsAvailable">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Verifies if the service is available.  Verifies the SessionID if supplied.</wsdl:documentation>
+      <wsdl:input message="tns:IsAvailableHttpPostIn" />
+      <wsdl:output message="tns:IsAvailableHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the HTML that represents the Menu for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:MenuHttpPostIn" />
+      <wsdl:output message="tns:MenuHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseLicense">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Releases a license for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:ReleaseLicenseHttpPostIn" />
+      <wsdl:output message="tns:ReleaseLicenseHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveConfigFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to update the web.config file for the Web Application</wsdl:documentation>
+      <wsdl:input message="tns:SaveConfigFileHttpPostIn" />
+      <wsdl:output message="tns:SaveConfigFileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveMenuFile">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Attempts to update the Xml Menu file for the Web Service</wsdl:documentation>
+      <wsdl:input message="tns:SaveMenuFileHttpPostIn" />
+      <wsdl:output message="tns:SaveMenuFileHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ExecutiveSoap" type="tns:ExecutiveSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LocationName">
+      <soap:operation soapAction="http://siemens.com/LocationName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationMenu">
+      <soap:operation soapAction="http://siemens.com/ApplicationMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeaderSetupMenu">
+      <soap:operation soapAction="http://siemens.com/HeaderSetupMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeaderMenu">
+      <soap:operation soapAction="http://siemens.com/HeaderMenu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <soap:operation soapAction="http://siemens.com/LoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://siemens.com/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogUserOut">
+      <soap:operation soapAction="http://siemens.com/LogUserOut" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationModules">
+      <soap:operation soapAction="http://siemens.com/GetApplicationModules" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://siemens.com/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap:operation soapAction="http://siemens.com/GetGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <soap:operation soapAction="http://siemens.com/GetUserGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigFile">
+      <soap:operation soapAction="http://siemens.com/GetConfigFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicense">
+      <soap:operation soapAction="http://siemens.com/GetLicense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuFile">
+      <soap:operation soapAction="http://siemens.com/GetMenuFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSession">
+      <soap:operation soapAction="http://siemens.com/GetSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap:operation soapAction="http://siemens.com/GetVersion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAvailable">
+      <soap:operation soapAction="http://siemens.com/IsAvailable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <soap:operation soapAction="http://siemens.com/Menu" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseLicense">
+      <soap:operation soapAction="http://siemens.com/ReleaseLicense" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveConfigFile">
+      <soap:operation soapAction="http://siemens.com/SaveConfigFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMenuFile">
+      <soap:operation soapAction="http://siemens.com/SaveMenuFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSession">
+      <soap:operation soapAction="http://siemens.com/UpdateSession" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExecutiveSoap12" type="tns:ExecutiveSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LocationName">
+      <soap12:operation soapAction="http://siemens.com/LocationName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationMenu">
+      <soap12:operation soapAction="http://siemens.com/ApplicationMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeaderSetupMenu">
+      <soap12:operation soapAction="http://siemens.com/HeaderSetupMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeaderMenu">
+      <soap12:operation soapAction="http://siemens.com/HeaderMenu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoginUser">
+      <soap12:operation soapAction="http://siemens.com/LoginUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="http://siemens.com/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogUserOut">
+      <soap12:operation soapAction="http://siemens.com/LogUserOut" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationModules">
+      <soap12:operation soapAction="http://siemens.com/GetApplicationModules" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap12:operation soapAction="http://siemens.com/GetUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <soap12:operation soapAction="http://siemens.com/GetGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <soap12:operation soapAction="http://siemens.com/GetUserGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigFile">
+      <soap12:operation soapAction="http://siemens.com/GetConfigFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicense">
+      <soap12:operation soapAction="http://siemens.com/GetLicense" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuFile">
+      <soap12:operation soapAction="http://siemens.com/GetMenuFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSession">
+      <soap12:operation soapAction="http://siemens.com/GetSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <soap12:operation soapAction="http://siemens.com/GetVersion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAvailable">
+      <soap12:operation soapAction="http://siemens.com/IsAvailable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <soap12:operation soapAction="http://siemens.com/Menu" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseLicense">
+      <soap12:operation soapAction="http://siemens.com/ReleaseLicense" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveConfigFile">
+      <soap12:operation soapAction="http://siemens.com/SaveConfigFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMenuFile">
+      <soap12:operation soapAction="http://siemens.com/SaveMenuFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSession">
+      <soap12:operation soapAction="http://siemens.com/UpdateSession" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExecutiveHttpGet" type="tns:ExecutiveHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="LocationName">
+      <http:operation location="/LocationName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationMenu">
+      <http:operation location="/ApplicationMenu" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeaderSetupMenu">
+      <http:operation location="/HeaderSetupMenu" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeaderMenu">
+      <http:operation location="/HeaderMenu" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogUserOut">
+      <http:operation location="/LogUserOut" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationModules">
+      <http:operation location="/GetApplicationModules" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <http:operation location="/GetUsers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <http:operation location="/GetGroups" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <http:operation location="/GetUserGroups" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigFile">
+      <http:operation location="/GetConfigFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicense">
+      <http:operation location="/GetLicense" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuFile">
+      <http:operation location="/GetMenuFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSession">
+      <http:operation location="/GetSession" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <http:operation location="/GetVersion" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAvailable">
+      <http:operation location="/IsAvailable" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <http:operation location="/Menu" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseLicense">
+      <http:operation location="/ReleaseLicense" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveConfigFile">
+      <http:operation location="/SaveConfigFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMenuFile">
+      <http:operation location="/SaveMenuFile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ExecutiveHttpPost" type="tns:ExecutiveHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="LocationName">
+      <http:operation location="/LocationName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ApplicationMenu">
+      <http:operation location="/ApplicationMenu" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeaderSetupMenu">
+      <http:operation location="/HeaderSetupMenu" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HeaderMenu">
+      <http:operation location="/HeaderMenu" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogUserOut">
+      <http:operation location="/LogUserOut" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetApplicationModules">
+      <http:operation location="/GetApplicationModules" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <http:operation location="/GetUsers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroups">
+      <http:operation location="/GetGroups" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserGroups">
+      <http:operation location="/GetUserGroups" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfigFile">
+      <http:operation location="/GetConfigFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLicense">
+      <http:operation location="/GetLicense" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMenuFile">
+      <http:operation location="/GetMenuFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSession">
+      <http:operation location="/GetSession" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersion">
+      <http:operation location="/GetVersion" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:content part="Body" type="text/xml" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsAvailable">
+      <http:operation location="/IsAvailable" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Menu">
+      <http:operation location="/Menu" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReleaseLicense">
+      <http:operation location="/ReleaseLicense" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveConfigFile">
+      <http:operation location="/SaveConfigFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveMenuFile">
+      <http:operation location="/SaveMenuFile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Executive">
+    <wsdl:port name="ExecutiveSoap" binding="tns:ExecutiveSoap">
+      <soap:address location="http://192.168.126.245/MES/Executive.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExecutiveSoap12" binding="tns:ExecutiveSoap12">
+      <soap12:address location="http://192.168.126.245/MES/Executive.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExecutiveHttpGet" binding="tns:ExecutiveHttpGet">
+      <http:address location="http://192.168.126.245/MES/Executive.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ExecutiveHttpPost" binding="tns:ExecutiveHttpPost">
+      <http:address location="http://192.168.126.245/MES/Executive.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://192.168.126.245/MES/Executive.asmx?wsdl" docRef="http://192.168.126.245/MES/Executive.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://192.168.126.245/MES/Executive.asmx" xmlns:q1="http://siemens.com/" binding="q1:ExecutiveSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://192.168.126.245/MES/Executive.asmx" xmlns:q2="http://siemens.com/" binding="q2:ExecutiveSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>
