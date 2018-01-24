@@ -344,10 +344,11 @@
                                 mapType: 'demo1',
                                 roam:true,
                                 data: [],
-                                markPoint: {
+                                /* markPoint: {
                                     //symbol: 'image://./img/1.png',
                                     symbol: 'circle',
                                     symbolSize : 10,
+                                    //animation: true,
                                     itemStyle:{
                             			normal:{
                             				color: 'grey',
@@ -362,7 +363,7 @@
                                         color: 'grey'
                                     },
                                     data: obj1,
-                                }
+                                } */
                              },
                              {
                              	 //name: '运行',
@@ -370,7 +371,7 @@
                                  mapType: 'demo1',
                                  roam:true,
                                  data: [],
-                                 markPoint: {
+                                 /* markPoint: {
                                      symbol: 'circle',
                                      symbolSize : 10,
                                      itemStyle:{
@@ -387,7 +388,7 @@
                                          color: 'green'
                                      },
                                      data: obj2,
-                                 }
+                                 } */
                               },
                               {
                           		  //name: '报警'
@@ -395,7 +396,7 @@
                                   mapType: 'demo1',
                                   roam:true,
                                   data: [],
-                                  markPoint: {
+                                  /* markPoint: {
                                       symbol: 'circle',
                                       symbolSize : 10,
                                       itemStyle:{
@@ -412,7 +413,7 @@
                                           color: 'yellow'
                                       },
                                       data: obj3,
-                                  }
+                                  } */
                               },
                               {
                           		//name: '故障'
@@ -420,7 +421,7 @@
                                   mapType: 'demo1',
                                   roam:true,
                                   data: [],
-                                  markPoint: {
+                                  /* markPoint: {
                                       symbol: 'circle',
                                       symbolSize : 10,
                                       itemStyle:{
@@ -437,10 +438,95 @@
                                           color: '#FF0000'
                                       },
                                       data: obj4,
-                                  }
+                                  } */
                               },
                              ]
                         });
+                        
+                        //加载markpoint
+                        var idle = {
+                            	//symbol: 'image://./img/1.png',
+                            	symbol: 'circle',
+                            	symbolSize : 6,
+                            	//animation: true,
+                            	itemStyle:{
+                    				normal:{
+                    					color: 'grey',
+                    					//borderColor: 'grey',
+                    					borderWidth: 1,
+                    					label:{show:false}
+                    				},
+                    				//emphasis:{label:{show:true}}
+                				},
+                            	effect: {
+                                	show: true,
+                                	color: 'grey'
+                            	},
+                            	data: obj1,
+                         };
+                         var run = {
+                        		 symbol: 'circle',
+                                 symbolSize : 6,
+                                 itemStyle:{
+                         			normal:{
+                         				color: 'green',
+                         				//borderColor: 'green',
+                         				borderWidth: 1,
+                         				label:{show:false}
+                         			},
+                         			//emphasis:{label:{show:true}}
+                     			},
+                                 effect: {
+                                     show: true,
+                                     color: 'green'
+                                 },
+                                 data: obj2,
+                         };
+                         var alarm = {
+                        		 symbol: 'circle',
+                                 symbolSize : 6,
+                                 itemStyle:{
+                         			normal:{
+                         				color: 'yellow',
+                         				//borderColor: 'grey',
+                         				borderWidth: 1,
+                         				label:{show:false}
+                         			},
+                         			//emphasis:{label:{show:true}}
+                     			  },
+                                 effect: {
+                                     show: true,
+                                     color: 'yellow'
+                                 },
+                                 data: obj3,
+                         };
+                         var breakdown = {
+                        		 symbol: 'circle',
+                                 symbolSize : 6,
+                                 itemStyle:{
+                         			normal:{
+                         				color: '#FF0000',
+                         				//borderColor: 'grey',
+                         				borderWidth: 1,
+                         				label:{show:false}
+                         			},
+                         			//emphasis:{label:{show:true}}
+                     			  },
+                                 effect: {
+                                     show: true,
+                                     color: '#FF0000'
+                                 },
+                                 data: obj4,
+                        		 
+                         };
+                        
+                        
+                        
+                        
+                        myChart.addMarkPoint(0,idle);
+                        myChart.addMarkPoint(1,run);
+                        myChart.addMarkPoint(2,alarm);
+                        myChart.addMarkPoint(3,breakdown);
                         
                         //结束加载
                         myChart.hideLoading();
