@@ -36,7 +36,7 @@ public partial class GetStationStatus : System.Web.UI.Page
                 DataSet dsPP = ComStation.GetPPStationStatus(strLine);
                 dsMES.Merge(dsPP);
                 strResult = JsonConvert.SerializeObject(dsMES).Replace("Table", "data").Replace("NAME", "name").Replace("VALUE", "value");//DataSet默認轉換Json開頭的Table換成baidu echart的的Data
-               
+                    
             }
             else
             {
@@ -50,6 +50,7 @@ public partial class GetStationStatus : System.Web.UI.Page
 
         //Response.Write(ComGZipHandle.GZipCompressString(strResult));//返回GZIP壓縮后的base64編碼
         Response.Write(strResult);
+        Response.AddHeader("Access-Control-Allow-Origin", "*");
 
     }
 }
