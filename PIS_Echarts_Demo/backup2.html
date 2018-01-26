@@ -1,3 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+  <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+  <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+</head>
+<body>
+<div id="example">
+</div>
+<script>
+//注册
+Vue.component('my-component', {
+  template: '<div>A custom component!</div>'
+})
+
+// 创建根实例
+new Vue({
+  el: '#example'
+})
+</script>
+<script>
 /**
  * 设备监控：SMT产线
  * @desc GitHub#(https://github.com/surick/Equipment-Monitoring)
@@ -430,3 +453,7 @@ require(
 						}
 			});
 });
+
+
+</script>
+</html>
