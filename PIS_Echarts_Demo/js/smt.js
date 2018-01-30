@@ -1,6 +1,6 @@
 /**
  * 设备监控：SMT产线
- * @desc GitHub#(https://github.com/surick/Equipment-Monitoring)
+ * @desc   #(https://github.com/surick/Equipment-Monitoring)
  * @author JinG (godcoder1996@gmail.com)
  */
 
