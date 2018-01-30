@@ -4,8 +4,6 @@
 <%@ page import="java.net.*" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.util.zip.*" %>
-<%@page import="com.google.gson.JsonArray"%>  
-<%@page import="com.google.gson.JsonObject"%> 
 <%
 	URL imp = new URL("http://localhost:3596/PISWebSite/GetStationStatus.aspx?Line=SMT");
 	BufferedReader in = new BufferedReader(  
@@ -17,9 +15,6 @@
 	while ((inputLine = in.readLine()) != null){  
 		String str = inputLine;
 		out.print(str);
-		
-		
 	}
 	in.close();
-	
 %>
