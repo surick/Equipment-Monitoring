@@ -1,6 +1,6 @@
 /**
  * 设备监控：SMT产线
- * @desc   #(https://github.com/surick/Equipment-Monitoring)
+ * @desc GitHub#(https://github.com/surick/Equipment-Monitoring)
  * @author JinG (godcoder1996@gmail.com)
  */
 
@@ -194,38 +194,38 @@ require(
 						},
 						data : [],
 						geoCoord : {
-							'BOX_LNB_DTV_L-Band_2#' 	      : [ 100, 540 ],
-							'BOX_LNB_HWAS_GPADC_Test_02#'     : [ 160, 450 ],
-							'BOX_LNB_HWAS_GPADC_Test_03#' 	  : [ 220, 540 ],
-							'BOX_LNB_HWAS_GPADC_Test_04#' 	  : [ 280, 540 ],
-							'BOX_LNB_HWAS_MOCA_Test_01#' 	  : [ 340, 450 ],
-							'BOX_LNB_DTV_L-Band_3#' 		  : [ 400, 540 ],
-							'BOX_LNB_HWAS_MOCA_Test_02#' 	  : [ 460, 540 ],
-							'BOX_74IFPCBA_Testing_Path_2#' 	  : [ 520, 450 ],
-							'BOX_74IFPCBA_Testing_Path_1#' 	  : [ 570, 540 ],
-							'BOX_LNB_DTV_L-Band_5#' 		  : [ 630, 450 ],
-							'BOX_74IFPCBA_Testing_Voltage_1#' : [ 680, 540 ],
-							'BOX_LNB_3S_CSSATS_LBAND_1#' 	  : [ 740, 450 ],
-							'BOX_LNB_DTV_L-Band_1#' 		  : [ 800, 540 ],
-							'BOX_LNB_DTV_L-Band_7#' 		  : [ 850, 540 ],
-							'BOX_LNB_HEAS_GPADC_Test_03#' 	  : [ 890, 540 ],
-							'BOX_LNB_HEAS_MOCA_Test_01#' 	  : [ 930, 540 ],
-							'BOX_LNB_HEAS_GPADC_Test_02#' 	  : [ 970, 540 ],
-							'BOX_LNB_HEAS_MOCA_Test_02#' 	  : [ 1015, 540 ],
-							'BOX_LNB_HEAS_MOCA_Test_03#' 	  : [ 1055, 540 ],
-							'BOX_IFPCBA_72_EC_Testing_01#' 	  : [ 1095, 540 ],
+							'BOX_LNB_DTV_L-Band_2#' 	      : [ 960, 1000 ],
+							'BOX_LNB_HWAS_GPADC_Test_02#'     : [ 695, 1000 ],
+							'BOX_LNB_HWAS_GPADC_Test_03#' 	  : [ 730, 1000 ],
+							'BOX_LNB_HWAS_GPADC_Test_04#' 	  : [ 762, 1000 ],
+							'BOX_LNB_HWAS_MOCA_Test_01#' 	  : [ 793, 1000 ],
+							'BOX_LNB_DTV_L-Band_3#' 		  : [ 990, 1000 ],
+							'BOX_LNB_HWAS_MOCA_Test_02#' 	  : [ 826, 1000 ],
+							'BOX_74IFPCBA_Testing_Path_2#' 	  : [ 598, 1000 ],
+							'BOX_74IFPCBA_Testing_Path_1#' 	  : [ 630, 1000 ],
+							'BOX_LNB_DTV_L-Band_5#' 		  : [ 1055, 1000 ],
+							'BOX_74IFPCBA_Testing_Voltage_1#' : [ 565, 1000 ],
+							'BOX_LNB_3S_CSSATS_LBAND_1#' 	  : [ 1185, 1000 ],
+							'BOX_LNB_DTV_L-Band_1#' 		  : [ 928, 1000 ],
+							'BOX_LNB_DTV_L-Band_7#' 		  : [ 1120, 1000 ],
+							'BOX_LNB_HEAS_GPADC_Test_03#' 	  : [ 730, 980 ],
+							'BOX_LNB_HEAS_MOCA_Test_01#' 	  : [ 793, 980 ],
+							'BOX_LNB_HEAS_GPADC_Test_02#' 	  : [ 695, 980 ],
+							'BOX_LNB_HEAS_MOCA_Test_02#' 	  : [ 826, 980 ],
+							'BOX_LNB_HEAS_MOCA_Test_03#' 	  : [ 860, 980 ],
+							'BOX_IFPCBA_72_EC_Testing_01#' 	  : [ 565, 980 ],
 							'BOX_IFPCBA_73_E_Testing_01#' 	  : [ 1135, 540 ],
-							'BOX_LNB_3S_CSSATS_LBAND_2#' 	  : [ 120, 700 ],
-							'BOX_LNB_DTV_L-Band_6#' 		  : [ 220, 700 ],
-							'BOX_LNB_HEAS_GPADC_Test_01#'  	  : [ 330, 700 ],
+							'BOX_LNB_3S_CSSATS_LBAND_2#' 	  : [ 1218, 1000 ],
+							'BOX_LNB_DTV_L-Band_6#' 		  : [ 1089, 1000 ],
+							'BOX_LNB_HEAS_GPADC_Test_01#'  	  : [ 664, 980 ],
 							'BOX_IFPCBA_73_E_Testing_02#' 	  : [ 370, 700 ],
-							'BOX_LNB_DTV_L-Band_4#' 	  	  : [ 415, 700 ],
-							'BOX_LNB_DTV_L-Band_8#' 		  : [ 460, 700 ],
-							'BOX_LNB_HWAS_GPADC_Test_01#' 	  : [ 505, 700 ],
+							'BOX_LNB_DTV_L-Band_4#' 	  	  : [ 1023, 1000 ],
+							'BOX_LNB_DTV_L-Band_8#' 		  : [ 1153, 1000 ],
+							'BOX_LNB_HWAS_GPADC_Test_01#' 	  : [ 664, 1000 ],
 							'BOX_IFPCBA_72_EC_Testing_02#' 	  : [ 550, 700 ],
-							'BOX_LNB_HEAS_GPADC_Test_04#' 	  : [ 595, 700 ],
-							'BOX_LNB_HWAS_MOCA_Test_03#' 	  : [ 675, 700 ],
-							'BOX_Nokia_RFB_Test_1#' 		  : [ 740, 700 ],
+							'BOX_LNB_HEAS_GPADC_Test_04#' 	  : [ 762, 980 ],
+							'BOX_LNB_HWAS_MOCA_Test_03#' 	  : [ 860, 1000 ],
+							'BOX_Nokia_RFB_Test_1#' 		  : [ 780, 930 ],
 							'NXT5' 							  : [ 820, 675 ],
 							'NXT6' 							  : [ 890, 675 ],
 							'YS_L04_01' 					  : [ 20, 675 ],
@@ -352,7 +352,7 @@ require(
 							  var idle = {
 								  // symbol: 'image://./img/1.png',
 								  symbol : 'emptyCircle',
-								  symbolSize : 5,
+								  symbolSize : 4,
 								  /*itemStyle : {
 									  normal : {
 										  color : '#6f6f6f',
@@ -370,7 +370,7 @@ require(
 							  };
 							  var run = {
 								  symbol : 'emptyCircle',
-								  symbolSize : 5,
+								  symbolSize : 4,
 								  /*itemStyle : {
 									  normal : {
 										  color : '#388e3c',
@@ -386,7 +386,7 @@ require(
 							  };
 							  var alarm = {
 								  symbol : 'emptyCircle',
-								  symbolSize : 5,
+								  symbolSize : 4,
 								  /*itemStyle : {
 									  normal : {
 										  color : '#ffaf00',
@@ -402,7 +402,7 @@ require(
 							  };
 							  var breakdown = {
 								  symbol : 'emptyCircle',
-								  symbolSize : 5,
+								  symbolSize : 4,
 								  /*itemStyle : {
 									  normal : {
 										  color : '#FF0000',
