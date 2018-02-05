@@ -9,10 +9,14 @@
 require.config({
 	paths : {
 		
+		// 如需布置在内网无外部网络连接，切换服务器本地资源，否则静态资源使用CDN加速
+		 'echarts' : 'js/echarts',
+		 'echarts/chart/map' : 'js/map'
+		
 		// 如需布置在内网无外部网络连接，使用服务器本地资源，否则静态资源使用CDN加速
 		// 采用CDN加速静态资源
-		'echarts' : 'https://cdn.bootcss.com/echarts/2.2.7/echarts',
-		'echarts/chart/map' : 'https://cdn.bootcss.com/echarts/2.2.7/chart/map'
+		//'echarts' : 'https://cdn.bootcss.com/echarts/2.2.7/echarts',
+		//'echarts/chart/map' : 'https://cdn.bootcss.com/echarts/2.2.7/chart/map'
 	}
 });
 
@@ -325,7 +329,7 @@ require(
 			// 根据抓取数据动态更新
 			$.ajax({
 				method : 'GET',
-				url : 'http://localhost:3596/PISWebSite/GetStationStatus.aspx?Line=SMT',
+				url : 'http://192.168.123.30/PIS/GetStationStatus.aspx?Line=SMT',
 				success : function(result) {
 							  // console.info(result);
 							  var jsonObj = $.parseJSON(result);

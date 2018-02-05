@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>设备状态</title>
+    <!-- 如需布置在内网无外部网络连接，使用服务器本地资源，否则静态资源使用CDN加速 -->
+    <!-- <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/esl.js"></script> -->
+    <!-- 使用CDN加速 -->
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/efe/esl/2-1-6/esl.js"></script>
+    <script src="js/smt.js"></script>
+</head>
+<body style="padding:0px;margin:0px;background:#78c2c3">
+<div id="top">
+	<select>
+		<option value=SMT>SMT</option>
+	</select>
+	<select id="time">
+        <option value="3">3mins</option>
+        <option value="30">30mins</option>
+        <option value="60">60mins</option>
+    </select>
+</div>
+<div id="main" style="height: 900px;"></div>
+</body>
+<script type="text/javascript">
+
+	// 屏幕大小改变自动刷新
+	$(window).resize(function (){
+		window.location.reload();
+	}); 
+	function refresh(){
+		window.location.reload();
+	}
+	var re = $("#time option:selected").val();
+	setInterval('refresh()',re*60*1000);
+</script>
+</html>
