@@ -94,7 +94,7 @@ require(
 				toolbox : {
 					show : true,
 					feature : {
-						//restore : {show: true},
+						restore : {show: true},
 						// 多图联动
 						/* magicType: {
 						    show : true,
@@ -110,9 +110,7 @@ require(
 						    },
 						    type : ['line', 'bar','pie']
 						}, */
-						saveAsImage : {
-							show : true
-						},
+						saveAsImage : {show : true},
 					}
 				},
 				series : [
