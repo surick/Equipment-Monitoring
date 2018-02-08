@@ -368,7 +368,8 @@ require(
 								  },*/
 								  effect : {
 									  show : true,
-									  color : '#6f6f6f'
+									  color : '#6f6f6f',
+									  shadowBlur : 0
 								  },
 								  data : obj0,
 							  };
@@ -384,7 +385,8 @@ require(
 								  },*/
 								  effect : {
 									  show : true,
-									  color : '#388e3c'
+									  color : '#388e3c',
+									  shadowBlur : 0
 								  },
 								  data : obj1,
 							  };
@@ -400,7 +402,8 @@ require(
 								  },*/
 								  effect : {
 									  show : true,
-									  color : '#ffaf00'
+									  color : '#ffaf00',
+									  shadowBlur : 0
 								  },
 								  data : obj2,
 							  };
@@ -416,7 +419,8 @@ require(
 								  },*/
 								  effect : {
 									  show : true,
-									  color : '#cb0101'
+									  color : '#cb0101',
+									  shadowBlur : 0
 								  },
 								  data : obj3,
 							  };
