@@ -10,8 +10,8 @@ require.config({
 	paths : {
 		
 		// 如需布置在内网无外部网络连接，切换服务器本地资源，否则静态资源使用CDN加速
-		 'echarts' : 'js/echarts',
-		 'echarts/chart/map' : 'js/map'
+		 'echarts' : 'js/echart/echarts',
+		 'echarts/chart/map' : 'js/echart/map'
 		
 		// 如需布置在内网无外部网络连接，使用服务器本地资源，否则静态资源使用CDN加速
 		// 采用CDN加速静态资源
