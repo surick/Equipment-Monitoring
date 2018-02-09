@@ -48,7 +48,7 @@ require(
 
 			// 配置项
 			var option = {
-				backgroundColor : '#f3ecc8',
+				backgroundColor : '#e0fcff',
 				/*title : {
 					text : '设备监控',
 					textStyle : {
@@ -127,11 +127,7 @@ require(
 						roam : true,
 						data : [],
 						markPoint : {
-							symbol : 'emptyCircle',
-							effect : {
-								show : true,
-								color : '#6f6f6f'
-							},
+							symbol : 'circle',
 							data : []
 						}
 					}, 
@@ -142,11 +138,7 @@ require(
 						roam : true,
 						data : [],
 						markPoint : {
-							symbol : 'emptyCircle',
-							effect : {
-								show : true,
-								color : '#41c5d3'
-							},
+							symbol : 'circle',
 							data : []
 						}
 					}, 
@@ -157,10 +149,10 @@ require(
 						roam : true,
 						data : [],
 						markPoint : {
-							symbol : 'emptyCircle',
+							symbol : 'circle',
 							effect : {
 								show : true,
-								color : '#ffaf00'
+								color : '#ffcd00'
 							},
 						data : []
 						}
@@ -355,9 +347,9 @@ require(
 							  // 根据重组的json加载markpoint,刷新状态
 							  var idle = {
 								  // symbol: 'image://./img/1.png',
-								  symbol : 'emptyCircle',
-								  symbolSize : 4,
-								  /*itemStyle : {
+								  symbol : 'circle',
+								  symbolSize : 6,
+								  itemStyle : {
 									  normal : {
 										  color : '#6f6f6f',
 										  // borderColor: '#6f6f6f',
@@ -365,44 +357,44 @@ require(
 										  label : {show : false}
 									  },
 									  // emphasis:{label:{show:true}}
-								  },*/
-								  effect : {
+								  },
+								 /* effect : {
 									  show : true,
 									  color : '#6f6f6f',
 									  shadowBlur : 0
-								  },
+								  },*/
 								  data : obj0,
 							  };
 							  var run = {
-								  symbol : 'emptyCircle',
-								  symbolSize : 4,
-								  /*itemStyle : {
+								  symbol : 'circle',
+								  symbolSize : 6,
+								  itemStyle : {
 									  normal : {
-										  color : '#388e3c',
+										  color : '#4ef037',
 										  borderWidth : 1,
 										  label : {show : false}
 									  },
-								  },*/
-								  effect : {
-									  show : true,
-									  color : '#388e3c',
-									  shadowBlur : 0
 								  },
+								 /* effect : {
+									  show : true,
+									  color : '#4ef037',
+									  shadowBlur : 0
+								  },*/
 								  data : obj1,
 							  };
 							  var alarm = {
-								  symbol : 'emptyCircle',
+								  symbol : 'circle',
 								  symbolSize : 4,
-								  /*itemStyle : {
+								  itemStyle : {
 									  normal : {
 										  color : '#ffaf00',
 										  borderWidth : 1,
 										  label : {show : false}
 									  },
-								  },*/
+								  },
 								  effect : {
 									  show : true,
-									  color : '#ffaf00',
+									  color : '#ffcd00',
 									  shadowBlur : 0
 								  },
 								  data : obj2,
@@ -410,13 +402,13 @@ require(
 							  var breakdown = {
 								  symbol : 'emptyCircle',
 								  symbolSize : 5,
-								  /*itemStyle : {
+								  itemStyle : {
 									  normal : {
 										  color : '#FF0000',
 										  borderWidth : 1,
 										  label : {show : false}
 									  },
-								  },*/
+								  },
 								  effect : {
 									  show : true,
 									  color : '#cb0101',
