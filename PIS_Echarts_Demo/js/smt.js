@@ -48,7 +48,7 @@ require(
 
 			// 配置项
 			var option = {
-				backgroundColor : '#e0fcff',
+				backgroundColor : '#ffffff',
 				/*title : {
 					text : '设备监控',
 					textStyle : {
@@ -150,10 +150,10 @@ require(
 						data : [],
 						markPoint : {
 							symbol : 'circle',
-							effect : {
+							/*effect : {
 								show : true,
 								color : '#ffcd00'
-							},
+							},*/
 						data : []
 						}
 					}, 
@@ -164,11 +164,11 @@ require(
 						roam : true,
 						data : [],
 						markPoint : {
-							symbol : 'emptyCircle',
-							effect : {
+							symbol : 'circle',
+							/*effect : {
 								show : true,
 								color : '#cb0101'
-							},
+							},*/
 						data : []
 						}
 					}, 
@@ -343,6 +343,10 @@ require(
 									  obj3.push(jsonObj.data[i]);
 								  // console.info(JSON.stringify(obj4));
 							  }
+							  
+							  if (obj3.length > 0){
+								  $('#alarm').attr("src","sound/wav/alarm.WAV");
+							  }
 
 							  // 根据重组的json加载markpoint,刷新状态
 							  var idle = {
@@ -384,7 +388,7 @@ require(
 							  };
 							  var alarm = {
 								  symbol : 'circle',
-								  symbolSize : 4,
+								  symbolSize : 8,
 								  itemStyle : {
 									  normal : {
 										  color : '#ffaf00',
@@ -392,16 +396,16 @@ require(
 										  label : {show : false}
 									  },
 								  },
-								  effect : {
+								 /* effect : {
 									  show : true,
 									  color : '#ffcd00',
 									  shadowBlur : 0
-								  },
+								  },*/
 								  data : obj2,
 							  };
 							  var breakdown = {
-								  symbol : 'emptyCircle',
-								  symbolSize : 5,
+								  symbol : 'circle',
+								  symbolSize : 8,
 								  itemStyle : {
 									  normal : {
 										  color : '#FF0000',
@@ -409,11 +413,11 @@ require(
 										  label : {show : false}
 									  },
 								  },
-								  effect : {
+								 /* effect : {
 									  show : true,
 									  color : '#cb0101',
 									  shadowBlur : 0
-								  },
+								  },*/
 								  data : obj3,
 							  };
 

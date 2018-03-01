@@ -10,6 +10,7 @@
    	<!--  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ss1.bdstatic.com/5eN1bjq8AAUYm2zgoY3K/r/www/cache/efe/esl/2-1-6/esl.js"></script> -->
     <script src="js/smt.js"></script>
+    
 </head>
 <body style="padding:0px;margin:0px;background:#78c2c3">
 <div id="top">
@@ -17,13 +18,13 @@
 		<option value=SMT>SMT</option>
 	</select>
 	<select id="time">
-        <option value="3">3mins</option>
-        <option value="30">30mins</option>
-        <option value="60">60mins</option>
+        <option value="1">1mins</option>
+        <option value="3" selected="selected">3mins</option>
+        <option value="5">5mins</option>
     </select>
 </div>
 <div id="main" style="height: 900px;"></div>
-<bgsound src="" loop="-1" id="bgsound" />
+<audio id="alarm" src="" autoplay="autoplay"></audio>
 </body>
 <script type="text/javascript">
 
