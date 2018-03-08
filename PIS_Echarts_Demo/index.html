@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>设备状态</title>
     <!-- 如需布置在内网无外部网络连接，使用服务器本地资源，否则静态资源使用CDN加速 -->
     <script type="text/javascript" src="js/jquery/jquery-1.7.2.min.js"></script>
@@ -18,20 +19,20 @@
 		<option value=SMT>SMT</option>
 	</select>
 	<select id="time">
-        <option value="1">1mins</option>
-        <option value="3" selected="selected">3mins</option>
+        <option value="1" selected="selected">1mins</option>
+        <option value="3">3mins</option>
         <option value="5">5mins</option>
     </select>
 </div>
 <div id="main" style="height: 900px;"></div>
-<audio id="alarm" src="" autoplay="autoplay"></audio>
+<!-- <audio id="alarm" src="" autoplay="autoplay"></audio> -->
 </body>
 <script type="text/javascript">
 
 	// 屏幕大小改变自动刷新
-	$(window).resize(function (){
+	/* $(window).resize(function (){
 		window.location.reload();
-	}); 
+	});  */
 	function refresh(){
 		window.location.reload();
 	}

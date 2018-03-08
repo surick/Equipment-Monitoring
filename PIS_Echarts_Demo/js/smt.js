@@ -345,91 +345,103 @@ require(
 							  }
 							  
 							  if (obj3.length > 0){
-								  $('#alarm').attr("src","sound/wav/alarm.WAV");
+								  var audio = document.createElement('audio');
+								  var source= document.createElement('source');
+								  if (audio.canPlayType('audio/mpeg;')) {
+								      source.type= 'audio/mpeg';
+								      source.src= 'sound/mp3/alarm.mp3';
+								  } else {
+								      source.type= 'audio/wav';
+								      source.src= 'sound/wav/alarm.wav';
+								  }
+								  audio.appendChild(source);
+								  audio.play();
+								  /*$('#alarm').attr("src","sound/mp3/alarm.mp3");*/
 							  }
-
-							  // 根据重组的json加载markpoint,刷新状态
-							  var idle = {
-								  // symbol: 'image://./img/1.png',
-								  symbol : 'circle',
-								  symbolSize : 6,
-								  itemStyle : {
-									  normal : {
-										  color : '#6f6f6f',
-										  // borderColor: '#6f6f6f',
-										  borderWidth : 1,
-										  label : {show : false}
-									  },
-									  // emphasis:{label:{show:true}}
-								  },
-								 /* effect : {
-									  show : true,
-									  color : '#6f6f6f',
-									  shadowBlur : 0
-								  },*/
-								  data : obj0,
-							  };
-							  var run = {
-								  symbol : 'circle',
-								  symbolSize : 6,
-								  itemStyle : {
-									  normal : {
-										  color : '#4ef037',
-										  borderWidth : 1,
-										  label : {show : false}
-									  },
-								  },
-								 /* effect : {
-									  show : true,
-									  color : '#4ef037',
-									  shadowBlur : 0
-								  },*/
-								  data : obj1,
-							  };
-							  var alarm = {
-								  symbol : 'circle',
-								  symbolSize : 8,
-								  itemStyle : {
-									  normal : {
-										  color : '#ffaf00',
-										  borderWidth : 1,
-										  label : {show : false}
-									  },
-								  },
-								 /* effect : {
-									  show : true,
-									  color : '#ffcd00',
-									  shadowBlur : 0
-								  },*/
-								  data : obj2,
-							  };
-							  var breakdown = {
-								  symbol : 'circle',
-								  symbolSize : 8,
-								  itemStyle : {
-									  normal : {
-										  color : '#FF0000',
-										  borderWidth : 1,
-										  label : {show : false}
-									  },
-								  },
-								 /* effect : {
-									  show : true,
-									  color : '#cb0101',
-									  shadowBlur : 0
-								  },*/
-								  data : obj3,
-							  };
-
-							  // 加载动画
+							  
 							  myChart.showLoading();
-
-							  myChart.addMarkPoint(0, idle);
-							  myChart.addMarkPoint(1, run);
-							  myChart.addMarkPoint(2, alarm);
-							  myChart.addMarkPoint(3, breakdown);
-
-							  // 结束加载
+							  myChart.setOption({
+		                            series:[
+		                            	{
+		            						//name: 'IDEL'
+		            						type : 'map',
+		            						mapType : 'demo1',
+		            						roam : true,
+		            						data : [],
+		            						markPoint : {
+		            							symbol : 'circle',
+		      								  	symbolSize : 6,
+		      								  	itemStyle : {
+		      								  		normal : {
+		      								  			color : '#6f6f6f',
+		      								  			// borderColor: '#6f6f6f',
+		      								  			borderWidth : 1,
+		      								  			label : {show : false}
+		      								  		},
+		      								  		// emphasis:{label:{show:true}}
+		      								  	},
+		      								  	data : obj0,
+		            						}
+		            					}, 
+		            					{
+		            						//name: '运行'
+		            						type : 'map',
+		            						mapType : 'demo1',
+		            						roam : true,
+		            						data : [],
+		            						markPoint : {
+		            							symbol : 'circle',
+		      								  	symbolSize : 6,
+		      								  	itemStyle : {
+		      								  		normal : {
+		      								  			color : '#4ef037',
+		      								  			borderWidth : 1,
+		      								  			label : {show : false}
+		      								  		},
+		      								  	},
+		      								  	data : obj1,
+		            						}
+		            					}, 
+		            					{
+		            						//name: '报警'
+		            						type : 'map',
+		            						mapType : 'demo1',
+		            						roam : true,
+		            						data : [],
+		            						markPoint : {
+		            							symbol : 'circle',
+		      								  	symbolSize : 8,
+		      								  	itemStyle : {
+		      								  		normal : {
+		      								  			color : '#ffaf00',
+		      								  			borderWidth : 1,
+		      								  			label : {show : false}
+		      								  		},
+		      								  	},
+		      								  	data : obj2,
+		            						}
+		            					}, 
+		            					{
+		            						//name: '故障'
+		            						type : 'map',
+		            						mapType : 'demo1',
+		            						roam : true,
+		            						data : [],
+		            						markPoint : {
+		            							symbol : 'circle',
+		      								  	symbolSize : 8,
+		      								  	itemStyle : {
+		      								  		normal : {
+		      								  			color : '#FF0000',
+		      								  			borderWidth : 1,
+		      								  			label : {show : false}
+		      								  		},
+		      								  	},
+		      								  	data : obj3,
+		            						}
+		            					}, 
+		                             ]
+		                        });
 							  myChart.hideLoading();
 						}
 			});
