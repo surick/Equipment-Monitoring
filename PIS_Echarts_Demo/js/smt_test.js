@@ -10,8 +10,8 @@ require.config({
 	paths : {
 		
 		// 如需布置在内网无外部网络连接，切换服务器本地资源，否则静态资源使用CDN加速
-		 'echarts' : 'js/echart/echarts',
-		 'echarts/chart/map' : 'js/echart/map'
+		 'echarts' : 'js/echarts',
+		 'echarts/chart/map' : 'js/map'
 		
 		// 如需布置在内网无外部网络连接，使用服务器本地资源，否则静态资源使用CDN加速
 		// 采用CDN加速静态资源
@@ -45,16 +45,17 @@ require(
 			/* window.onresize = function(){
 			   myChart.resize();
 			}; */
-			
 			var geo = {};
+			//var geo1 = {};
 			$.ajax({
 				method : 'GET',
-				url : 'getGeo.jsp',
+				url : 'test1.jsp',
 				async:false,
 				success : function(res) {
 							  console.log(res);
 					 		  var Data = $.parseJSON(res);
 					 		  console.log(Data[1]);
+							  //geo1["上海"] = [ 120.13,33.38 ];
 					 		  for (var i = 0;i <= Data.length; i++){
 					 			  geo[Data[i-2]] = [Data[i-1],Data[i]];
 					 		  }
@@ -68,9 +69,11 @@ require(
 				method : 'GET',
 				url : 'http://192.168.123.30/PIS/GetStationStatus.aspx?Line=SMT',
 				success : function(result) {
+							  // console.info(result);
 							  var jsonObj = $.parseJSON(result);
 							  for (var i = 0; i < jsonObj.data.length; i++) {
 									  point.push(jsonObj.data[i]);
+								      //console.info(JSON.stringify(point));
 							  }
 						}
 			});
@@ -219,7 +222,7 @@ require(
 
 						},
 						data : [],
-						geoCoord : geo,
+						geoCoord :geo,
 						markPoint : {
 							symbolSize : 0,
 							data : point,
@@ -227,6 +230,7 @@ require(
 					} 
 				]
 			};
+			console.log(geo);
 
 			// 为echarts对象加载数据
 			myChart.setOption(option);

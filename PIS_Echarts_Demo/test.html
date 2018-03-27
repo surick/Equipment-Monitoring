@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body{
+    	margin:0px;
+    	padding:0px;
+    }
+    div{
+      height:900px;
+      width:100%;
+ 
+    }
+  </style>
+ 
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+   <script>
+    $("document").ready(function(){
+  		$("#b").bind('click',function(e){    
+    		var X=e.pageX-$(this).offset().left;
+    		var Y=e.pageY-$(this).offset().top;
+     		$("#b").text("left"+X+",top"+Y)
+  		})
+	});
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Test</title>
+</head>
+<body id="">
+  <div id="b">
+    
+  </div>
+</body>
+</html>

@@ -45,36 +45,6 @@ require(
 			/* window.onresize = function(){
 			   myChart.resize();
 			}; */
-			
-			var geo = {};
-			$.ajax({
-				method : 'GET',
-				url : 'getGeo.jsp',
-				async:false,
-				success : function(res) {
-							  console.log(res);
-					 		  var Data = $.parseJSON(res);
-					 		  console.log(Data[1]);
-					 		  for (var i = 0;i <= Data.length; i++){
-					 			  geo[Data[i-2]] = [Data[i-1],Data[i]];
-					 		  }
-							  console.log(geo);
-						}
-			});
-			console.log(geo);
-			
-			var point = [];
-			$.ajax({
-				method : 'GET',
-				url : 'http://192.168.123.30/PIS/GetStationStatus.aspx?Line=SMT',
-				success : function(result) {
-							  var jsonObj = $.parseJSON(result);
-							  for (var i = 0; i < jsonObj.data.length; i++) {
-									  point.push(jsonObj.data[i]);
-							  }
-						}
-			});
-			console.log(point);
 
 			// 配置项
 			var option = {
@@ -219,10 +189,124 @@ require(
 
 						},
 						data : [],
-						geoCoord : geo,
+						geoCoord : {
+							'BOX_LNB_DTV_L-Band_2#' 	      : [ 960, 1000 ],
+							'BOX_LNB_HWAS_GPADC_Test_02#'     : [ 695, 1000 ],
+							'BOX_LNB_HWAS_GPADC_Test_03#' 	  : [ 730, 1000 ],
+							'BOX_LNB_HWAS_GPADC_Test_04#' 	  : [ 762, 1000 ],
+							'BOX_LNB_HWAS_MOCA_Test_01#' 	  : [ 793, 1000 ],
+							'BOX_LNB_DTV_L-Band_3#' 		  : [ 990, 1000 ],
+							'BOX_LNB_HWAS_MOCA_Test_02#' 	  : [ 826, 1000 ],
+							'BOX_74IFPCBA_Testing_Path_2#' 	  : [ 598, 1000 ],
+							'BOX_74IFPCBA_Testing_Path_1#' 	  : [ 630, 1000 ],
+							'BOX_LNB_DTV_L-Band_5#' 		  : [ 1055, 1000 ],
+							'BOX_74IFPCBA_Testing_Voltage_1#' : [ 565, 1000 ],
+							'BOX_LNB_3S_CSSATS_LBAND_1#' 	  : [ 1185, 1000 ],
+							'BOX_LNB_DTV_L-Band_1#' 		  : [ 928, 1000 ],
+							'BOX_LNB_DTV_L-Band_7#' 		  : [ 1120, 1000 ],
+							'BOX_LNB_HEAS_GPADC_Test_03#' 	  : [ 730, 980 ],
+							'BOX_LNB_HEAS_MOCA_Test_01#' 	  : [ 793, 980 ],
+							'BOX_LNB_HEAS_GPADC_Test_02#' 	  : [ 695, 980 ],
+							'BOX_LNB_HEAS_MOCA_Test_02#' 	  : [ 826, 980 ],
+							'BOX_LNB_HEAS_MOCA_Test_03#' 	  : [ 860, 980 ],
+							'BOX_IFPCBA_72_EC_Testing_01#' 	  : [ 565, 980 ],
+							'BOX_IFPCBA_73_E_Testing_01#' 	  : [ 630, 980 ],
+							'BOX_LNB_3S_CSSATS_LBAND_2#' 	  : [ 1218, 1000 ],
+							'BOX_LNB_DTV_L-Band_6#' 		  : [ 1089, 1000 ],
+							'BOX_LNB_HEAS_GPADC_Test_01#'  	  : [ 664, 980 ],
+							'BOX_IFPCBA_73_E_Testing_02#' 	  : [ 598, 980 ],
+							'BOX_LNB_DTV_L-Band_4#' 	  	  : [ 1023, 1000 ],
+							'BOX_LNB_DTV_L-Band_8#' 		  : [ 1153, 1000 ],
+							'BOX_LNB_HWAS_GPADC_Test_01#' 	  : [ 664, 1000 ],
+							'BOX_IFPCBA_72_EC_Testing_02#' 	  : [ 595, 420 ],
+							'BOX_LNB_HEAS_GPADC_Test_04#' 	  : [ 762, 980 ],
+							'BOX_LNB_HWAS_MOCA_Test_03#' 	  : [ 860, 1000 ],
+							'BOX_Nokia_RFB_Test_1#' 		  : [ 780, 930 ],
+							'NXT5' 							  : [ 175, 425 ],
+							'NXT6' 							  : [ 185, 513 ],
+							'YS_L04_01' 					  : [ 446, 345 ],
+							'NXT2' 							  : [ 72, 470 ],
+							'NXT1' 							  : [ 40, 360 ],
+							'YS24_L2_02' 					  : [ 446, 405 ],
+							'YS_L2_03' 						  : [ 446, 455 ],
+							'NXTA' 							  : [ 595, 360 ],
+							'NXTB' 							  : [ 685, 350 ],
+							'XPFB1' 						  : [ 685, 410 ],
+							'NXTC' 							  : [ 813, 350 ],
+							'XPFC' 							  : [ 813, 410 ],
+							'NXTD' 							  : [ 940, 350 ],
+							'XPFD' 							  : [ 945, 410 ],
+							'YS_L03_01' 					  : [ 317, 345 ],
+							'YS_L03_02' 					  : [ 317, 405 ],
+							'YS_L03_03' 					  : [ 317, 452 ],
+							'YS_L04_02' 					  : [ 446, 375 ],
+							'YS_L04_03' 					  : [ 446, 540 ],
+							'NXT3' 							  : [ 165, 360 ],
+							'YV_L1_02' 						  : [ 317, 375 ],
+							'NXT4' 							  : [ 165, 385 ],
+							'YS_L1_03' 						  : [ 317, 535 ],
+							'XPFB2' 						  : [ 685, 480 ],
+						},
 						markPoint : {
 							symbolSize : 0,
-							data : point,
+							data : [ 
+								{name : 'BOX_LNB_DTV_L-Band_2#'},
+								{name : 'BOX_LNB_HWAS_GPADC_Test_02#'},
+								{name : 'BOX_LNB_HWAS_GPADC_Test_03#'},
+								{name : 'BOX_LNB_HWAS_GPADC_Test_04#'},
+								{name : 'BOX_LNB_HWAS_MOCA_Test_01#'},
+								{name : 'BOX_LNB_DTV_L-Band_3#'}, 
+								{name : 'BOX_LNB_HWAS_MOCA_Test_02#'},
+								{name : 'BOX_74IFPCBA_Testing_Path_2#'},
+								{name : 'BOX_74IFPCBA_Testing_Path_1#'},
+								{name : 'BOX_LNB_DTV_L-Band_5#'}, 
+								{name : 'BOX_74IFPCBA_Testing_Voltage_1#'},
+								{name : 'BOX_LNB_3S_CSSATS_LBAND_1#'},
+								{name : 'BOX_LNB_DTV_L-Band_1#'},
+								{name : 'BOX_LNB_DTV_L-Band_7#'},
+								{name : 'BOX_LNB_HEAS_GPADC_Test_03#'},
+								{name : 'BOX_LNB_HEAS_MOCA_Test_01#'},
+								{name : 'BOX_LNB_HEAS_GPADC_Test_02#'},
+								{name : 'BOX_LNB_HEAS_MOCA_Test_02#'},
+								{name : 'BOX_LNB_HEAS_MOCA_Test_03#'},
+								{name : 'BOX_IFPCBA_72_EC_Testing_01#'},
+								{name : 'BOX_IFPCBA_73_E_Testing_01#'},
+								{name : 'BOX_LNB_3S_CSSATS_LBAND_2#'},
+								{name : 'BOX_LNB_DTV_L-Band_6#'},
+								{name : 'BOX_LNB_HEAS_GPADC_Test_01#'},
+								{name : 'BOX_IFPCBA_73_E_Testing_02#'},
+								{name : 'BOX_LNB_DTV_L-Band_4#'},
+								{name : 'BOX_LNB_DTV_L-Band_8#'},
+								{name : 'BOX_LNB_HWAS_GPADC_Test_01#'},
+								{name : 'BOX_IFPCBA_72_EC_Testing_02#'},
+								{name : 'BOX_LNB_HEAS_GPADC_Test_04#'},
+								{name : 'BOX_LNB_HWAS_MOCA_Test_03#'},
+								{name : 'BOX_Nokia_RFB_Test_1#'},
+								{name : 'NXT5'},
+								{name : 'NXT6'},
+								{name : 'YS_L04_01'},
+								{name : 'NXT2'},
+								{name : 'NXT1'},
+								{name : 'YS24_L2_02'},
+								{name : 'YS_L2_03'},
+								{name : 'NXTA'},
+								{name : 'NXTB'},
+								{name : 'XPFB1'},
+								{name : 'NXTC'},
+								{name : 'XPFC'},
+								{name : 'NXTD'},
+								{name : 'XPFD'},
+								{name : 'YS_L03_01'},
+								{name : 'YS_L03_02'},
+								{name : 'YS_L03_03'},
+								{name : 'YS_L04_02'},
+								{name : 'YS_L04_03'},
+								{name : 'NXT3'},
+								{name : 'YV_L1_02'},
+								{name : 'NXT4'},
+								{name : 'YS_L1_03'},
+								{name : 'XPFB2'},
+							]
 						}
 					} 
 				]
