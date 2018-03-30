@@ -16,16 +16,23 @@
 <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
    <script>
     $("document").ready(function(){
-  		$("#b").bind('click',function(e){    
+  		$("#b").bind('mousemove',function(e){    
     		var X=e.pageX-$(this).offset().left;
     		var Y=e.pageY-$(this).offset().top;
      		$("#b").text("left"+X+",top"+Y)
   		})
+  		$("#b").bind('click',function(e){    
+  			var x,y;
+  			name=prompt("name:")
+  		    x=prompt("X:");
+  		    y=prompt("Y:");
+  		})
 	});
+   
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Test</title>
+  <title>标点测试</title>
 </head>
 <body id="">
   <div id="b">
